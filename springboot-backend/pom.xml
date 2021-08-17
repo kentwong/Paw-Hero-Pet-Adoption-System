@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.fdmgroup</groupId>
-	<artifactId>springboot-backend</artifactId>
+	<artifactId>pawheroproject</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>springboot-backend</name>
-	<description>Paw Hero Project Spring Boot</description>
+	<description>Paw Hero Spring Boot Project</description>
 	<properties>
 		<java.version>16</java.version>
 	</properties>
