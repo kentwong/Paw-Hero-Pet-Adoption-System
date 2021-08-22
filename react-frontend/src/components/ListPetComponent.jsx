@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PetService from '../services/PetService';
 
 class ListPetComponent extends Component {
     constructor(props) {
@@ -7,6 +8,12 @@ class ListPetComponent extends Component {
         this.state = {
             pets: []
         }
+    }
+
+    componentDidMount() {
+        PetService.getPets().then((res) => {
+            this.setState({ pets: res.data })
+        })
     }
 
     render() {
@@ -30,7 +37,7 @@ class ListPetComponent extends Component {
                                         <tr key={pet.id}>
                                             <td> {pet.name} </td>
                                             <td> {pet.age} </td>
-                                            <td> {pet.desctiption} </td>
+                                            <td> {pet.description} </td>
                                         </tr>
                                 )
                             }
