@@ -6,7 +6,7 @@ class HeaderComponent extends Component {
             <div>
                 <header>
                     <nav className="navbar navbar-expand-md navbar-dark bg-dark">
-                        <div className="container">
+                        <div className="px-4">
                             <a href="http://localhost:3000/" className="navbar-brand">
                                 <img src={"./assets/images/pawherologo.png"} height="50" alt="Paw Hero's Logo" />
                             </a>
