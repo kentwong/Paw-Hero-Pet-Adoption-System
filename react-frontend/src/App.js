@@ -4,18 +4,20 @@ import ListPetComponent from './components/ListPetComponent';
 import HeaderComponent from './components/HeaderComponent';
 import FooterComponent from './components/FooterComponent';
 import HeroImageComponent from './components/HeroImageComponent';
+import CreatePetComponent from './components/CreatePetComponent';
+
 
 function App() {
   return (
     <div>
       <Router>
         <HeaderComponent />
-        <HeroImageComponent />
+        {/* <HeroImageComponent /> */}
         <div className="container">
           <Switch>
-            <Route path="/" component={ListPetComponent}></Route>
+            <Route path="/" exact component={HeroImageComponent}></Route>
             <Route path="/pets" component={ListPetComponent}></Route>
-            <ListPetComponent />
+            <Route path="/addpet" component={CreatePetComponent}></Route>
           </Switch>
 
         </div>

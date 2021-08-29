@@ -8,6 +8,8 @@ class ListPetComponent extends Component {
         this.state = {
             pets: []
         }
+
+        this.addPet = this.addPet.bind(this);
     }
 
     componentDidMount() {
@@ -16,10 +18,17 @@ class ListPetComponent extends Component {
         })
     }
 
+    addPet() {
+        this.props.history.push('/addpet');
+    }
+
     render() {
         return (
             <div>
                 <h2 className="text-center">Pets List</h2>
+                <div className="row">
+                    <button className="btn btn-primary col-2" onClick={this.addPet}>Add Pet</button>
+                </div>
                 <div className="row">
                     <table className="table table-Striped table-bordered">
                         <thead>
