@@ -24,3 +24,11 @@
   top: 50%;
   transform: translate(-50%, -50%);
 }
+
+.addpetform {
+  max-width: 900px;
+  margin: auto;
+  border: 2px solid #eee;
+  padding: 50px;
+  margin-bottom: 50px;
+}
