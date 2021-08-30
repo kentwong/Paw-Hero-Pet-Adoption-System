@@ -39,11 +39,9 @@ class ListPetComponent extends Component {
 
     render() {
         return (
-            <div>
+            <div className="container my-5">
                 <h2 className="text-center">Pets List</h2>
-                <div className="row">
-                    <button className="btn btn-primary col-2" onClick={this.addPet}>Add Pet</button>
-                </div>
+
                 <div className="row">
                     <table className="table table-Striped table-bordered">
                         <thead>
@@ -74,6 +72,9 @@ class ListPetComponent extends Component {
 
                     </table>
                 </div>
+                {/* <div className="">
+                    <button className="btn btn-success" onClick={this.addPet}>Add Pet</button>
+                </div> */}
             </div>
         );
     }

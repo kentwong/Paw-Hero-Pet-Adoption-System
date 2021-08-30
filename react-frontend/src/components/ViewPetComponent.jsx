@@ -24,7 +24,7 @@ class ViewPetComponent extends Component {
 
     render() {
         return (
-            <div>
+            <div className="container">
                 <div className="custom-container">
                     <h2>Pet Details</h2>
                     <div className="row">

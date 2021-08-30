@@ -78,7 +78,7 @@ class UpdatePetComponent extends Component {
 
     render() {
         return (
-            <div>
+            <div className="container">
                 <form className="custom-container" onSubmit={this.updatePet}>
                     <h2 className="mb-5">Update Pet Details</h2>
                     <div className="mb-3">

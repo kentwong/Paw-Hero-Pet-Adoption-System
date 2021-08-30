@@ -15,7 +15,7 @@ function App() {
       <Router>
         <HeaderComponent />
         {/* <HeroImageComponent /> */}
-        <div className="container">
+        <div className="">
           <Switch>
             <Route path="/" exact component={HeroImageComponent}></Route>
             <Route path="/pets" component={ListPetComponent}></Route>

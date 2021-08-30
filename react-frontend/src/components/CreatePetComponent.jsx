@@ -59,7 +59,7 @@ class CreatePetComponent extends Component {
 
     render() {
         return (
-            <div>
+            <div className="container">
                 <form className="custom-container" onSubmit={this.addPet}>
                     <h2 className="mb-5">Create New Pet</h2>
                     <div className="mb-3">
