@@ -11,7 +11,7 @@ import ViewPetComponent from './components/ViewPetComponent';
 
 function App() {
   return (
-    <div>
+    <div className="app">
       <Router>
         <HeaderComponent />
         {/* <HeroImageComponent /> */}
@@ -28,7 +28,7 @@ function App() {
         <FooterComponent />
       </Router>
 
-    </div>
+    </div >
 
   );
 }
