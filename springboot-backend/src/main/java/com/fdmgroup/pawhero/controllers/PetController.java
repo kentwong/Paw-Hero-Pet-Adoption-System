@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -41,6 +42,25 @@ public class PetController {
 				.orElseThrow(() -> new ResourceNotFoundException("Pet does not exist with id : " + id));
 		
 		return ResponseEntity.ok(pet);
+	}
+	
+	@PutMapping("/pets/{id}")
+	public ResponseEntity<Pet> updatePet(@PathVariable Integer id, @RequestBody Pet petUpdates) {
+		Pet pet = petRepo.findById(id)
+				.orElseThrow(() -> new ResourceNotFoundException("Pet does not exist with id : " + id));
+		
+		pet.setAdoptionFee(petUpdates.getAdoptionFee());
+		pet.setAge(petUpdates.getAge());
+		pet.setBreed(petUpdates.getBreed());
+		pet.setDescription(petUpdates.getDescription());
+		pet.setImageUrl(petUpdates.getImageUrl());
+		pet.setLocation(petUpdates.getLocation());
+		pet.setName(petUpdates.getName());
+		pet.setSex(petUpdates.getSex());
+		pet.setType(petUpdates.getType());
+		
+		Pet updatedPet = petRepo.save(pet);
+		return ResponseEntity.ok(updatedPet);
 	}
 	
 	
