@@ -10,6 +10,7 @@ class ListPetComponent extends Component {
         }
 
         this.addPet = this.addPet.bind(this);
+        this.updatePet = this.updatePet.bind(this);
     }
 
     componentDidMount() {
@@ -20,6 +21,10 @@ class ListPetComponent extends Component {
 
     addPet() {
         this.props.history.push('/addpet');
+    }
+
+    updatePet(id) {
+        this.props.history.push(`/updatepet/${id}`);
     }
 
     render() {
@@ -43,10 +48,13 @@ class ListPetComponent extends Component {
                             {
                                 this.state.pets.map(
                                     pet =>
-                                        <tr key={pet.id}>
+                                        <tr key={pet.petId}>
                                             <td> {pet.name} </td>
                                             <td> {pet.age} </td>
                                             <td> {pet.description} </td>
+                                            <td>
+                                                <button onClick={() => this.updatePet(pet.petId)} className="btn btn-primary">Update</button>
+                                            </td>
                                         </tr>
                                 )
                             }

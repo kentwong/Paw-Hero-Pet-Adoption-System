@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import PetService from '../services/PetService';
 
-class CreatePetComponent extends Component {
+class UpdatePetComponent extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
+            petId: this.props.match.params.id,
             type: 'dog',
             name: '',
             breed: '',
@@ -18,7 +19,7 @@ class CreatePetComponent extends Component {
             imageUrl: ''
         }
         this.handleOnChange = this.handleOnChange.bind(this);
-        this.addPet = this.addPet.bind(this);
+        this.updatePet = this.updatePet.bind(this);
     }
 
     handleOnChange = e => {
@@ -32,7 +33,25 @@ class CreatePetComponent extends Component {
         this.props.history.push('/pets');
     }
 
-    addPet = e => {
+    componentDidMount() {
+        PetService.getPetById(this.state.petId).then(res => {
+            let pet = res.data;
+            this.setState({
+                type: pet.type,
+                name: pet.name,
+                breed: pet.breed,
+                ageMonth: pet.age.split(' ')[2],
+                ageYear: pet.age.split(' ')[0],
+                sex: pet.sex,
+                location: pet.location,
+                adoptionFee: pet.adoptionFee,
+                description: pet.description,
+                imageUrl: pet.imageUrl
+            })
+        })
+    }
+
+    updatePet = e => {
         e.preventDefault();
         let year = '';
         let month = '';
@@ -52,16 +71,16 @@ class CreatePetComponent extends Component {
         };
         console.log(JSON.stringify(pet));
 
-        PetService.createPet(pet).then(res => {
-            this.props.history.push('/pets');
-        });
+        // PetService.createPet(pet).then(res => {
+        //     this.props.history.push('/pets');
+        // });
     }
 
     render() {
         return (
             <div>
-                <form className="addpetform p-3 p-md-5" onSubmit={this.addPet}>
-                    <h2 className="mb-5">Create New Pet</h2>
+                <form className="addpetform p-3 p-md-5" onSubmit={this.updatePet}>
+                    <h2 className="mb-5">Update Pet Details</h2>
                     <div className="mb-3">
                         <label htmlFor="type" className="form-label">Type <span className="text-danger">*</span></label>
                         <select className="form-select" id="type" defaultValue="dog" onChange={this.handleOnChange}>
@@ -111,7 +130,7 @@ class CreatePetComponent extends Component {
                         <label htmlFor="imageUrl" className="form-label">Upload Image</label>
                         <input type="file" className="form-control" id="imageUrl" value={this.state.imageUrl} onChange={this.handleOnChange}></input>
                     </div>
-                    <button type="submit" className="btn btn-success me-2">Add</button>
+                    <button type="submit" className="btn btn-success me-2">Save</button>
                     <button className="btn btn-danger" onClick={this.cancel.bind(this)}>Cancel</button>
                 </form>
             </div>
@@ -119,4 +138,4 @@ class CreatePetComponent extends Component {
     }
 }
 
-export default CreatePetComponent;
+export default UpdatePetComponent;

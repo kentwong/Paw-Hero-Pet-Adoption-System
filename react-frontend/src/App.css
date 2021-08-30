@@ -27,8 +27,6 @@
 
 .addpetform {
   max-width: 900px;
-  margin: auto;
   border: 2px solid #eee;
-  padding: 50px;
-  margin-bottom: 50px;
+  margin: 50px auto;
 }

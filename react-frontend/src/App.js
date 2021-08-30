@@ -5,6 +5,7 @@ import HeaderComponent from './components/HeaderComponent';
 import FooterComponent from './components/FooterComponent';
 import HeroImageComponent from './components/HeroImageComponent';
 import CreatePetComponent from './components/CreatePetComponent';
+import UpdatePetComponent from './components/UpdatePetComponent';
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
             <Route path="/" exact component={HeroImageComponent}></Route>
             <Route path="/pets" component={ListPetComponent}></Route>
             <Route path="/addpet" component={CreatePetComponent}></Route>
+            <Route path="/updatepet/:id" component={UpdatePetComponent}></Route>
           </Switch>
 
         </div>
