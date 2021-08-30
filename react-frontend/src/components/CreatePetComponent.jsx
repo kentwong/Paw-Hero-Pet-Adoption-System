@@ -9,7 +9,8 @@ class CreatePetComponent extends Component {
             type: 'dog',
             name: '',
             breed: '',
-            age: '',
+            ageMonth: '',
+            ageYear: '',
             sex: 'male',
             location: '',
             fee: '',
@@ -32,11 +33,16 @@ class CreatePetComponent extends Component {
 
     addPet = e => {
         e.preventDefault();
+        let year = '';
+        let month = '';
+        this.state.ageYear > 1 ? year = " years " : year = " year ";
+        this.state.ageMonth > 1 ? month = " months " : month = " month ";
+
         let pet = {
             type: this.state.type,
             name: this.state.name,
             breed: this.state.breed,
-            age: this.state.age,
+            age: this.state.ageYear + year + this.state.ageMonth + month,
             sex: this.state.sex,
             location: this.state.location,
             fee: this.state.fee,
@@ -71,9 +77,15 @@ class CreatePetComponent extends Component {
                         <label htmlFor="breed" className="form-label">Breed <span className="text-danger">*</span></label>
                         <input type="text" className="form-control" id="breed" value={this.state.breed} onChange={this.handleOnChange} required></input>
                     </div>
-                    <div className="mb-3">
-                        <label htmlFor="age" className="form-label">Age (months) <span className="text-danger">*</span></label>
-                        <input type="number" className="form-control" id="age" min="0" value={this.state.age} onChange={this.handleOnChange} required></input>
+                    <div className="row mb-3">
+                        <div className="col-md-6">
+                            <label htmlFor="age" className="form-label">Age (Year) <span className="text-danger">*</span></label>
+                            <input type="number" className="form-control" id="ageYear" min="0" value={this.state.ageYear} onChange={this.handleOnChange} required></input>
+                        </div>
+                        <div className="col-md-6">
+                            <label htmlFor="age" className="form-label">Age (Month) <span className="text-danger">*</span></label>
+                            <input type="number" className="form-control" id="ageMonth" min="0" value={this.state.ageMonth} onChange={this.handleOnChange} required></input>
+                        </div>
                     </div>
                     <div className="mb-3">
                         <label htmlFor="sex" className="form-label">Sex <span className="text-danger">*</span></label>
