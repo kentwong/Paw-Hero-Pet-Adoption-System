@@ -6,6 +6,10 @@ class PetService {
     getPets() {
         return axios.get(PET_API_BASE_URL);
     }
+
+    createPet(pet) {
+        return axios.post(PET_API_BASE_URL, pet);
+    }
 }
 
 export default new PetService();

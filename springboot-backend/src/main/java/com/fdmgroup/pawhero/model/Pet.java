@@ -19,7 +19,7 @@ public class Pet {
 	private String location;
 	
 	@Column(name = "adoption_fee")
-	private double adoptionFee;
+	private String adoptionFee;
 	
 	private String description;
 	
@@ -30,7 +30,7 @@ public class Pet {
 		super();
 	}
 
-	public Pet(String type, String name, String breed, String age, String sex, String location, double adoptionFee,
+	public Pet(String type, String name, String breed, String age, String sex, String location, String adoptionFee,
 			String description, String imageUrl) {
 		super();
 		this.type = type;
@@ -100,11 +100,11 @@ public class Pet {
 		this.location = location;
 	}
 
-	public double getAdoptionFee() {
+	public String getAdoptionFee() {
 		return adoptionFee;
 	}
 
-	public void setAdoptionFee(double adoptionFee) {
+	public void setAdoptionFee(String adoptionFee) {
 		this.adoptionFee = adoptionFee;
 	}
 
