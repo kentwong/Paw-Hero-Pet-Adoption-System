@@ -71,9 +71,9 @@ class UpdatePetComponent extends Component {
         };
         console.log(JSON.stringify(pet));
 
-        // PetService.createPet(pet).then(res => {
-        //     this.props.history.push('/pets');
-        // });
+        PetService.updatePet(pet, this.state.petId).then(res => {
+            this.props.history.push('/pets');
+        });
     }
 
     render() {

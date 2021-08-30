@@ -16,7 +16,7 @@ class PetService {
     }
 
     updatePet(pet, petId) {
-        return axios.put(PET_API_BASE_URL, '/', petId, pet);
+        return axios.put(PET_API_BASE_URL + '/' + petId, pet);
     }
 
 }
