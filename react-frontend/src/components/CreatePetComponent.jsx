@@ -13,9 +13,9 @@ class CreatePetComponent extends Component {
             ageYear: '',
             sex: 'male',
             location: '',
-            fee: '',
+            adoptionFee: '',
             description: '',
-            file: ''
+            imageUrl: ''
         }
         this.handleOnChange = this.handleOnChange.bind(this);
     }
@@ -45,9 +45,9 @@ class CreatePetComponent extends Component {
             age: this.state.ageYear + year + this.state.ageMonth + month,
             sex: this.state.sex,
             location: this.state.location,
-            fee: this.state.fee,
+            adoptionFee: this.state.adoptionFee,
             description: this.state.description,
-            file: this.state.file
+            imageUrl: this.state.imageUrl
         };
         console.log(JSON.stringify(pet));
 
@@ -99,16 +99,16 @@ class CreatePetComponent extends Component {
                         <input type="text" className="form-control" id="location" value={this.state.location} onChange={this.handleOnChange} required></input>
                     </div>
                     <div className="mb-3">
-                        <label htmlFor="fee" className="form-label">Adoption Fee (AUD) <span className="text-danger">*</span></label>
-                        <input type="number" className="form-control" id="fee" min="0" value={this.state.fee} onChange={this.handleOnChange} required></input>
+                        <label htmlFor="adoptionFee" className="form-label">Adoption adoptionFee (AUD) <span className="text-danger">*</span></label>
+                        <input type="number" className="form-control" id="adoptionFee" min="0" step="0.01" value={this.state.adoptionFee} onChange={this.handleOnChange} required></input>
                     </div>
                     <div className="mb-3">
                         <label htmlFor="description" className="form-label">Description <span className="text-danger">*</span></label>
                         <textarea className="form-control" id="description" rows="3" value={this.state.description} onChange={this.handleOnChange} required></textarea>
                     </div>
                     <div className="mb-3">
-                        <label htmlFor="file" className="form-label">Upload Image</label>
-                        <input type="file" className="form-control" id="file" value={this.state.file} onChange={this.handleOnChange}></input>
+                        <label htmlFor="imageUrl" className="form-label">Upload Image</label>
+                        <input type="file" className="form-control" id="imageUrl" value={this.state.imageUrl} onChange={this.handleOnChange}></input>
                     </div>
                     <button type="submit" className="btn btn-success me-2">Add</button>
                     <button className="btn btn-danger" onClick={this.cancel.bind(this)}>Cancel</button>
