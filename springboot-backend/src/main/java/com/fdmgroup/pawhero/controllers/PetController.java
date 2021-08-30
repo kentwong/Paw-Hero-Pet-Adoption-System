@@ -67,7 +67,7 @@ public class PetController {
 	}
 	
 	@DeleteMapping("/pets/{id}")
-	public ResponseEntity<Map<String, Boolean>> deletePet(Integer id) {
+	public ResponseEntity<Map<String, Boolean>> deletePet(@PathVariable Integer id) {
 		Pet pet = petRepo.findById(id)
 				.orElseThrow(() -> new ResourceNotFoundException("Pet does not exist with id : " + id));
 		

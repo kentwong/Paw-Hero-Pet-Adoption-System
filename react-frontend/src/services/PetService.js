@@ -19,6 +19,10 @@ class PetService {
         return axios.put(PET_API_BASE_URL + '/' + petId, pet);
     }
 
+    deletePet(petId) {
+        return axios.delete(PET_API_BASE_URL + '/' + petId);
+    }
+
 }
 
 export default new PetService();

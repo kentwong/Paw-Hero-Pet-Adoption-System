@@ -11,6 +11,7 @@ class ListPetComponent extends Component {
 
         this.addPet = this.addPet.bind(this);
         this.updatePet = this.updatePet.bind(this);
+        this.deletePet = this.deletePet.bind(this);
     }
 
     componentDidMount() {
@@ -25,6 +26,11 @@ class ListPetComponent extends Component {
 
     updatePet(id) {
         this.props.history.push(`/updatepet/${id}`);
+    }
+
+    deletePet(id) {
+        PetService.deletePet(id);
+        this.setState({ pets: this.state.pets.filter(pet => pet.petId !== id) })
     }
 
     render() {
@@ -53,7 +59,8 @@ class ListPetComponent extends Component {
                                             <td> {pet.age} </td>
                                             <td> {pet.description} </td>
                                             <td>
-                                                <button onClick={() => this.updatePet(pet.petId)} className="btn btn-primary">Update</button>
+                                                <button onClick={() => this.updatePet(pet.petId)} className="btn btn-primary mb-2">Update</button>
+                                                <button onClick={() => this.deletePet(pet.petId)} className="btn btn-danger">Delete</button>
                                             </td>
                                         </tr>
                                 )
