@@ -28,6 +28,10 @@ class ListPetComponent extends Component {
         this.props.history.push(`/updatepet/${id}`);
     }
 
+    viewPet(id) {
+        this.props.history.push(`/viewpet/${id}`)
+    }
+
     deletePet(id) {
         PetService.deletePet(id);
         this.setState({ pets: this.state.pets.filter(pet => pet.petId !== id) })
@@ -44,10 +48,10 @@ class ListPetComponent extends Component {
                     <table className="table table-Striped table-bordered">
                         <thead>
                             <tr>
-                                <th>Pet Name</th>
-                                <th>Pet Age</th>
-                                <th>Pet Description</th>
-                                <th>Actions</th>
+                                <th className="w-10">Pet ID</th>
+                                <th className="w-10">Pet Name</th>
+                                <th className="w-55">Pet Description</th>
+                                <th className="w-25">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -55,12 +59,13 @@ class ListPetComponent extends Component {
                                 this.state.pets.map(
                                     pet =>
                                         <tr key={pet.petId}>
+                                            <td> {pet.petId} </td>
                                             <td> {pet.name} </td>
-                                            <td> {pet.age} </td>
                                             <td> {pet.description} </td>
                                             <td>
-                                                <button onClick={() => this.updatePet(pet.petId)} className="btn btn-primary mb-2">Update</button>
-                                                <button onClick={() => this.deletePet(pet.petId)} className="btn btn-danger">Delete</button>
+                                                <button onClick={() => this.viewPet(pet.petId)} className="btn btn-secondary mb-2 me-2">View</button>
+                                                <button onClick={() => this.updatePet(pet.petId)} className="btn btn-primary mb-2 me-2">Update</button>
+                                                <button onClick={() => this.deletePet(pet.petId)} className="btn btn-danger mb-2 me-2">Delete</button>
                                             </td>
                                         </tr>
                                 )
