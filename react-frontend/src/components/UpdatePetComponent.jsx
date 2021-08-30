@@ -79,7 +79,7 @@ class UpdatePetComponent extends Component {
     render() {
         return (
             <div>
-                <form className="addpetform p-3 p-md-5" onSubmit={this.updatePet}>
+                <form className="custom-container" onSubmit={this.updatePet}>
                     <h2 className="mb-5">Update Pet Details</h2>
                     <div className="mb-3">
                         <label htmlFor="type" className="form-label">Type <span className="text-danger">*</span></label>

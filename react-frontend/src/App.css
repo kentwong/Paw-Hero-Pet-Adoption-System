@@ -13,6 +13,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   height: 50vh;
+  background-image: url("./assets/images/dogandcat.jpg");
 }
 
 .jumbotron-content {
@@ -25,8 +26,15 @@
   transform: translate(-50%, -50%);
 }
 
-.addpetform {
+.custom-container {
   max-width: 900px;
   border: 2px solid #eee;
   margin: 50px auto;
+  padding: 1rem;
+}
+
+@media only screen and (min-width: 768px) {
+  .custom-container {
+    padding: 3rem !important;
+  }
 }

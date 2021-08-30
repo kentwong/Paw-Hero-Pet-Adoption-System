@@ -60,14 +60,14 @@ class CreatePetComponent extends Component {
     render() {
         return (
             <div>
-                <form className="addpetform p-3 p-md-5" onSubmit={this.addPet}>
+                <form className="custom-container" onSubmit={this.addPet}>
                     <h2 className="mb-5">Create New Pet</h2>
                     <div className="mb-3">
                         <label htmlFor="type" className="form-label">Type <span className="text-danger">*</span></label>
                         <select className="form-select" id="type" defaultValue="dog" onChange={this.handleOnChange}>
-                            <option value="dog">Dog</option>
-                            <option value="cat">Cat</option>
-                            <option value="others">Other Pets</option>
+                            <option value="Dog">Dog</option>
+                            <option value="Cat">Cat</option>
+                            <option value="Others">Other Pets</option>
                         </select>
                     </div>
                     <div className="mb-3">
@@ -91,8 +91,8 @@ class CreatePetComponent extends Component {
                     <div className="mb-3">
                         <label htmlFor="sex" className="form-label">Sex <span className="text-danger">*</span></label>
                         <select className="form-select" id="sex" defaultValue="male" onChange={this.handleOnChange}>
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
                         </select>
                     </div>
                     <div className="mb-3">

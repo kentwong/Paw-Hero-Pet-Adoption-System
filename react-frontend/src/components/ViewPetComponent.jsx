@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PetService from '../services/PetService';
+import ImageNotAvail from '../assets/images/imagenotavailable.png';
 
 class ViewPetComponent extends Component {
     constructor(props) {
@@ -7,16 +8,7 @@ class ViewPetComponent extends Component {
 
         this.state = {
             petId: this.props.match.params.id,
-            type: 'dog',
-            name: '',
-            breed: '',
-            ageMonth: '',
-            ageYear: '',
-            sex: 'male',
-            location: '',
-            adoptionFee: '',
-            description: '',
-            imageUrl: ''
+            pet: {},
         }
     }
 
@@ -26,28 +18,47 @@ class ViewPetComponent extends Component {
 
     componentDidMount() {
         PetService.getPetById(this.state.petId).then(res => {
-            let pet = res.data;
-            this.setState({
-                type: pet.type,
-                name: pet.name,
-                breed: pet.breed,
-                ageMonth: pet.age.split(' ')[2],
-                ageYear: pet.age.split(' ')[0],
-                sex: pet.sex,
-                location: pet.location,
-                adoptionFee: pet.adoptionFee,
-                description: pet.description,
-                imageUrl: pet.imageUrl
-            })
+            this.setState({ pet: res.data })
         })
     }
 
     render() {
         return (
             <div>
-                <h1>Pet Details</h1>
-                <h1>{this.state.name}</h1>
+                <div className="custom-container">
+                    <h2>Pet Details</h2>
+                    <div className="row">
+                        <div className="col-lg-8 my-3">
+                            <img className="w-100" src={ImageNotAvail} alt="Pet" />
+                        </div>
+                        <div className="col-lg-3 my-3">
+                            <span className="badge bg-primary text-wrap">Name</span>
+                            <h4>{this.state.pet.name}</h4>
 
+                            <span className="badge bg-primary text-wrap">Type</span>
+                            <h4>{this.state.pet.type}</h4>
+
+                            <span className="badge bg-primary text-wrap">Breed</span>
+                            <h4>{this.state.pet.breed}</h4>
+
+                            <span className="badge bg-primary text-wrap">Age</span>
+                            <h4>{this.state.pet.age}</h4>
+
+                            <span className="badge bg-primary text-wrap">Sex</span>
+                            <h4>{this.state.pet.sex}</h4>
+
+                            <span className="badge bg-primary text-wrap">Location</span>
+                            <h4>{this.state.pet.location}</h4>
+
+                            <span className="badge bg-primary text-wrap">Adoption Fee</span>
+                            <h4>A$ {this.state.pet.adoptionFee}</h4>
+                        </div>
+                    </div>
+
+                    <span className="fw-bold text-primary">About Me</span>
+                    <p>{this.state.pet.description}</p>
+
+                </div>
             </div>
         );
     }
