@@ -27,15 +27,15 @@ class HeaderComponent extends Component {
                                     <li className="nav-item">
                                         <a className="nav-link" href="/addpet">Add Pets</a>
                                     </li>
-
-                                    <li className="nav-item">
-                                        <a className="nav-link" href="#">Log In</a>
+                                </ul>
+                                <div className="navbar-nav d-flex">
+                                    <li className="nav-item navbar-right">
+                                        <a className="nav-link" href="/login">Log In</a>
                                     </li>
                                     <li className="nav-item">
                                         <a className="nav-link" href="/signup">Sign Up</a>
                                     </li>
-
-                                </ul>
+                                </div>
                                 {/* <form className="d-flex">
                                     <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
                                     <button className="btn btn-outline-success" type="submit">Search</button>
