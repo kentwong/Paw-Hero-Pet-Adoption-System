@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PawHeroLogo from '../assets/images/pawherologo.png';
+// import PawHeroLogo from '../assets/images/pawherologo.png';
 
 class HeaderComponent extends Component {
     render() {

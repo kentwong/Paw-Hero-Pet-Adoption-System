@@ -1,9 +1,9 @@
 import { LOGIN_REQUEST, SUCCESS, FAILURE } from './authTypes';
 
-export const authenticateUser = (email, password) => {
+export const authenticateUser = (emailAddress, password) => {
     return dispatch => {
         dispatch(loginRequest());
-        if (email === "test" && password === "test") {
+        if (emailAddress === "test" && password === "test") {
             dispatch(success());
         } else {
             dispatch(failure());

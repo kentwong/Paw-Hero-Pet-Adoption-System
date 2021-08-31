@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import { Row, Col, Card, Form, InputGroup, FormControl, Button } from 'react-bootstrap';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faSignInAlt } from '@fortawesome/free-solid-svg-icons';
-
+import { connect } from 'react-redux';
+import { authenticateUser } from '../services/index'
 
 class LoginComponent extends Component {
     constructor(props) {
@@ -13,7 +11,7 @@ class LoginComponent extends Component {
             password: ''
         }
         this.handleOnChange = this.handleOnChange.bind(this);
-        this.login = this.login.bind(this);
+        this.validateUser = this.validateUser.bind(this);
     }
 
     handleOnChange = e => {
@@ -27,14 +25,15 @@ class LoginComponent extends Component {
         this.props.history.push('/');
     }
 
-    login = e => {
+    validateUser = e => {
         e.preventDefault();
 
-        let user = {
-            emailAddress: this.state.emailAddress,
-            password: this.state.password
-        };
-        console.log(JSON.stringify(user));
+        this.props.authenticateUser(this.state.emailAddress, this.state.password)
+        // let user = {
+        //     emailAddress: this.state.emailAddress,
+        //     password: this.state.password
+        // };
+        // console.log(JSON.stringify(user));
 
         // PetService.createPet(pet).then(res => {
         //     this.props.history.push('/pets');
@@ -44,7 +43,7 @@ class LoginComponent extends Component {
     render() {
         return (
             <div className="container">
-                <form className="custom-container" onSubmit={this.login}>
+                <form className="custom-container" onSubmit={this.validateUser}>
                     <h2 className="mb-5">Log In</h2>
 
                     <div className="mb-3">
@@ -65,4 +64,16 @@ class LoginComponent extends Component {
     }
 }
 
-export default LoginComponent;
+const mapStateToProps = state => {
+    return {
+        login: state.login
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        authenticateUser: (emailAddress, password) => dispatch(authenticateUser(emailAddress, password))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginComponent);
