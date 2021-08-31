@@ -1,4 +1,4 @@
-package com.fdmgroup.web.dto;
+package com.fdmgroup.pawhero.web.dto;
 
 public class UserRegistrationDto {
 

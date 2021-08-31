@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.fdmgroup.pawhero.model.Role;
 import com.fdmgroup.pawhero.model.User;
 import com.fdmgroup.pawhero.repositories.UserRepository;
-import com.fdmgroup.web.dto.UserRegistrationDto;
+import com.fdmgroup.pawhero.web.dto.UserRegistrationDto;
 
 @Service
 public class UserService implements IUserService {
