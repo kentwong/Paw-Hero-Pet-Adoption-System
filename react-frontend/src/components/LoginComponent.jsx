@@ -63,7 +63,7 @@ class LoginComponent extends Component {
                 <form className="custom-container" onSubmit={this.validateUser}>
                     <h2 className="mb-5">Log In</h2>
 
-                    {this.state.error && <div class="alert alert-danger" role="alert">
+                    {this.state.error && <div className="alert alert-danger" role="alert">
                         {this.state.error}
                     </div>}
                     <div className="mb-3">

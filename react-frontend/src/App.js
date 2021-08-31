@@ -20,13 +20,13 @@ function App() {
         <div className="">
           <Switch>
             <Route path="/" exact component={HeroImageComponent}></Route>
-            <Route path="/pets" component={ListPetComponent}></Route>
-            <Route path="/addpet" component={CreatePetComponent}></Route>
-            <Route path="/updatepet/:id" component={UpdatePetComponent}></Route>
-            <Route path="/viewpet/:id" component={ViewPetComponent}></Route>
-            <Route path="/signup" component={SignUpComponent}></Route>
-            <Route path="/login" component={LoginComponent}></Route>
-            <Route path="/logout" component={LoginComponent}></Route>
+            <Route path="/pets" exact component={ListPetComponent}></Route>
+            <Route path="/addpet" exact component={CreatePetComponent}></Route>
+            <Route path="/updatepet/:id" exact component={UpdatePetComponent}></Route>
+            <Route path="/viewpet/:id" exact component={ViewPetComponent}></Route>
+            <Route path="/signup" exact component={SignUpComponent}></Route>
+            <Route path="/login" exact component={LoginComponent}></Route>
+            <Route path="/logout" exact component={LoginComponent}></Route>
           </Switch>
 
         </div>
