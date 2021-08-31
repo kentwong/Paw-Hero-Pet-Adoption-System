@@ -28,6 +28,13 @@ class HeaderComponent extends Component {
                                         <a className="nav-link" href="/addpet">Add Pets</a>
                                     </li>
 
+                                    <li className="nav-item">
+                                        <a className="nav-link" href="#">Log In</a>
+                                    </li>
+                                    <li className="nav-item">
+                                        <a className="nav-link" href="/signup">Sign Up</a>
+                                    </li>
+
                                 </ul>
                                 {/* <form className="d-flex">
                                     <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />

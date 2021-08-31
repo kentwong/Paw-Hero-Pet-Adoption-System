@@ -7,6 +7,7 @@ import HeroImageComponent from './components/HeroImageComponent';
 import CreatePetComponent from './components/CreatePetComponent';
 import UpdatePetComponent from './components/UpdatePetComponent';
 import ViewPetComponent from './components/ViewPetComponent';
+import CreateUserComponent from './components/CreateUserComponent';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
             <Route path="/addpet" component={CreatePetComponent}></Route>
             <Route path="/updatepet/:id" component={UpdatePetComponent}></Route>
             <Route path="/viewpet/:id" component={ViewPetComponent}></Route>
+            <Route path="/signup" component={CreateUserComponent}></Route>
           </Switch>
 
         </div>
