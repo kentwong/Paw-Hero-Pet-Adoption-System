@@ -6,12 +6,16 @@ class LoginComponent extends Component {
     constructor(props) {
         super(props)
 
-        this.state = {
-            emailAddress: '',
-            password: ''
-        }
+        this.state = this.initialState;
+
         this.handleOnChange = this.handleOnChange.bind(this);
         this.validateUser = this.validateUser.bind(this);
+    }
+
+    initialState = {
+        emailAddress: '',
+        password: '',
+        error: ''
     }
 
     handleOnChange = e => {
@@ -19,6 +23,10 @@ class LoginComponent extends Component {
         this.setState({
             [id]: value
         })
+    }
+
+    resetLoginForm = () => {
+        this.setState(() => this.initialState);
     }
 
     cancel() {
@@ -38,6 +46,15 @@ class LoginComponent extends Component {
         // PetService.createPet(pet).then(res => {
         //     this.props.history.push('/pets');
         // });
+
+        setTimeout(() => {
+            if (this.props.auth.isLoggedIn) {
+                return this.props.history.push("/");
+            } else {
+                this.resetLoginForm();
+                this.setState({ "error": "Invalid email address or password. Please try again." });
+            }
+        })
     }
 
     render() {
@@ -46,6 +63,9 @@ class LoginComponent extends Component {
                 <form className="custom-container" onSubmit={this.validateUser}>
                     <h2 className="mb-5">Log In</h2>
 
+                    {this.state.error && <div class="alert alert-danger" role="alert">
+                        {this.state.error}
+                    </div>}
                     <div className="mb-3">
                         <label htmlFor="emailAddress" className="form-label">Email Address <span className="text-danger">*</span></label>
                         <input type="text" className="form-control" id="emailAddress" value={this.state.emailAddress} onChange={this.handleOnChange} required></input>
@@ -66,7 +86,7 @@ class LoginComponent extends Component {
 
 const mapStateToProps = state => {
     return {
-        login: state.login
+        auth: state.auth
     }
 }
 
