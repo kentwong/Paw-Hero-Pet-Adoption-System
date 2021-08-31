@@ -12,6 +12,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 
 import com.fdmgroup.pawhero.model.Role;
@@ -21,7 +22,7 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 
 @Component
-public class JwtTokenProvider implements Serializable {
+public class JwtTokenProvider implements Serializable, UserDetailsService {
 	
 	private static final long serialVersionUID = 5660513279747232326L;
 	
@@ -47,7 +48,7 @@ public class JwtTokenProvider implements Serializable {
 
 	@Autowired
 	private UserDetailsService userDetailsService;
-
+	
 	public Authentication getAuthentication(String username) {
 		UserDetails userDetails = userDetailsService.loadUserByUsername(username);
 		return new UsernamePasswordAuthenticationToken(userDetails.getUsername(), userDetails.getPassword(),
@@ -56,5 +57,11 @@ public class JwtTokenProvider implements Serializable {
 
 	public Claims getClaimsFromToken(String token) {
 		return Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token).getBody();
+	}
+
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
