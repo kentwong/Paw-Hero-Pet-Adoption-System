@@ -26,6 +26,7 @@ function App() {
             <Route path="/viewpet/:id" component={ViewPetComponent}></Route>
             <Route path="/signup" component={SignUpComponent}></Route>
             <Route path="/login" component={LoginComponent}></Route>
+            <Route path="/logout" component={LoginComponent}></Route>
           </Switch>
 
         </div>

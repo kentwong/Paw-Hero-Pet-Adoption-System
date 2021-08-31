@@ -27,6 +27,11 @@ class HeaderComponent extends Component {
                         <a className="nav-link" href="/addpet">Add Pets</a>
                     </li>
                 </ul>
+                <div className="navbar-nav ms-auto">
+                    <li className="nav-item navbar-right">
+                        <a className="nav-link" href="/logout">Log Out</a>
+                    </li>
+                </div>
             </>
         )
 
