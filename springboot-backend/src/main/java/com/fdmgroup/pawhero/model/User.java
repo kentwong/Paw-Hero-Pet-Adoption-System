@@ -38,9 +38,10 @@ public class User {
 		super();
 	}
 
-	public User(Collection<Role> roles, String firstName, String lastName, String phone, String emailAddress,
+	public User(int userId, Collection<Role> roles, String firstName, String lastName, String phone, String emailAddress,
 			String password) {
 		super();
+		this.userId = userId;
 		this.roles = roles;
 		this.firstName = firstName;
 		this.lastName = lastName;
