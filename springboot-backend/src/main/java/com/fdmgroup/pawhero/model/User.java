@@ -1,9 +1,11 @@
 package com.fdmgroup.pawhero.model;
 
+import java.util.Collection;
+
 import javax.persistence.*;
 
 @Entity
-@Table(name = "user")
+@Table(name = "user", uniqueConstraints = @UniqueConstraint(columnNames = "email_address"))
 public class User {
 	
 	@Id
@@ -11,8 +13,14 @@ public class User {
 	@Column(name = "user_id")
 	private int userId;
 	
-	private String type;
-	
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinTable(
+			name = "users_roles",
+			joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "user_id"), 
+			inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "role_id")
+			)
+	private Collection<Role> roles;
+
 	@Column(name = "first_name")
 	private String firstName;
 	
@@ -24,18 +32,21 @@ public class User {
 	@Column(name = "email_address")
 	private String emailAddress;
 	
+	private String password;
 	
 	public User() {
 		super();
 	}
 
-	public User(String type, String firstName, String lastName, String phone, String emailAddress) {
+	public User(Collection<Role> roles, String firstName, String lastName, String phone, String emailAddress,
+			String password) {
 		super();
-		this.type = type;
+		this.roles = roles;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.phone = phone;
 		this.emailAddress = emailAddress;
+		this.password = password;
 	}
 
 	public int getUserId() {
@@ -46,12 +57,12 @@ public class User {
 		this.userId = userId;
 	}
 
-	public String getType() {
-		return type;
+	public Collection<Role> getRoles() {
+		return roles;
 	}
 
-	public void setType(String type) {
-		this.type = type;
+	public void setRoles(Collection<Role> roles) {
+		this.roles = roles;
 	}
 
 	public String getFirstName() {
@@ -84,5 +95,13 @@ public class User {
 
 	public void setEmailAddress(String emailAddress) {
 		this.emailAddress = emailAddress;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 }
