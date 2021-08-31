@@ -54,7 +54,7 @@ class LoginComponent extends Component {
                 this.resetLoginForm();
                 this.setState({ "error": "Invalid email address or password. Please try again." });
             }
-        })
+        }, 1000)
     }
 
     render() {

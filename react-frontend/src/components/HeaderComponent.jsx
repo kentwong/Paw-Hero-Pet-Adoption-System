@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { logoutUser } from '../services/index'
 // import PawHeroLogo from '../assets/images/pawherologo.png';
 
 class HeaderComponent extends Component {
+    logout = () => {
+        this.props.logoutUser();
+    }
+
     render() {
         const guestLinks = (
             <>
@@ -29,7 +34,7 @@ class HeaderComponent extends Component {
                 </ul>
                 <div className="navbar-nav ms-auto">
                     <li className="nav-item navbar-right">
-                        <a className="nav-link" href="/logout">Log Out</a>
+                        <a className="nav-link" href="/logout" onClick={this.logout}>Log Out</a>
                     </li>
                 </div>
             </>
@@ -74,4 +79,10 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(HeaderComponent);
+const mapDispatchToProps = dispatch => {
+    return {
+        logoutUser: () => dispatch(logoutUser())
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(HeaderComponent);
