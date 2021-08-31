@@ -15,6 +15,11 @@ public class Role {
 	public Role() {
 		super();
 	}
+	
+	public Role(String name) {
+		super();
+		this.name = name;
+	}
 
 	public int getRoleId() {
 		return roleId;
