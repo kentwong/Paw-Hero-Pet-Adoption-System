@@ -10,10 +10,15 @@ class ViewPetComponent extends Component {
             petId: this.props.match.params.id,
             pet: {},
         }
+        this.adoptPet = this.adoptPet.bind(this);
     }
 
     cancel() {
-        this.props.history.push('/pets');
+        this.props.history.push('/');
+    }
+
+    adoptPet(id) {
+        this.props.history.push(`/adoptpet/${id}`)
     }
 
     componentDidMount() {
@@ -58,6 +63,8 @@ class ViewPetComponent extends Component {
                     <span className="fw-bold text-primary">About Me</span>
                     <p>{this.state.pet.description}</p>
 
+                    <button onClick={() => this.adoptPet(this.state.pet.petId)} className="btn btn-primary mb-2 me-2">Adopt Now</button>
+                    <button onClick={() => this.cancel()} className="btn btn-danger mb-2 me-2">Back</button>
                 </div>
             </div>
         );

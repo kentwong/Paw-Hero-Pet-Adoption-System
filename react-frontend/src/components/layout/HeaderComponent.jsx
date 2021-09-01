@@ -1,8 +1,8 @@
 import React from 'react';
 import { useSelector } from "react-redux";
-import AdminNavComponent from './nav/AdminNavComponent';
-import GuestNavComponent from './nav/GuestNavComponent';
-import UserNavComponent from './nav/UserNavComponent';
+import AdminNavComponent from '../nav/AdminNavComponent';
+import GuestNavComponent from '../nav/GuestNavComponent';
+import UserNavComponent from '../nav/UserNavComponent';
 
 const HeaderComponent = () => {
 

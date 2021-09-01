@@ -2,9 +2,8 @@ import React from "react";
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import ListPetComponent from './components/pet/ListPetComponent';
-import HeaderComponent from './components/HeaderComponent';
-import FooterComponent from './components/FooterComponent';
-import HeroImageComponent from './components/HeroImageComponent';
+import HeaderComponent from './components/layout/HeaderComponent';
+import FooterComponent from './components/layout/FooterComponent';
 import CreatePetComponent from './components/pet/CreatePetComponent';
 import UpdatePetComponent from './components/pet/UpdatePetComponent';
 import ViewPetComponent from './components/pet/ViewPetComponent';
@@ -12,6 +11,7 @@ import SignUpComponent from './components/user/SignUpComponent';
 import LoginComponent from './components/user/LoginComponent';
 import ListUserComponent from './components/user/ListUserComponent';
 import UpdateUserComponent from "./components/user/UpdateUserComponent";
+import HomePageComponent from "./components/HomePageComponent";
 
 
 function App() {
@@ -23,7 +23,7 @@ function App() {
         {/* <HeroImageComponent /> */}
         <div className="">
           <Switch>
-            <Route path="/" exact component={HeroImageComponent}></Route>
+            <Route path="/" exact component={HomePageComponent}></Route>
             <Route path="/pets" exact component={ListPetComponent}></Route>
             <Route path="/addpet" exact component={CreatePetComponent}></Route>
             <Route path="/updatepet/:id" exact component={UpdatePetComponent}></Route>
