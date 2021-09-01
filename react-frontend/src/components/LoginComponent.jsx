@@ -37,15 +37,6 @@ class LoginComponent extends Component {
         e.preventDefault();
 
         this.props.authenticateUser(this.state.emailAddress, this.state.password)
-        // let user = {
-        //     emailAddress: this.state.emailAddress,
-        //     password: this.state.password
-        // };
-        // console.log(JSON.stringify(user));
-
-        // PetService.createPet(pet).then(res => {
-        //     this.props.history.push('/pets');
-        // });
 
         setTimeout(() => {
             if (this.props.auth.isLoggedIn) {
@@ -54,7 +45,7 @@ class LoginComponent extends Component {
                 this.resetLoginForm();
                 this.setState({ "error": "Invalid email address or password. Please try again." });
             }
-        }, 1000)
+        }, 500)
     }
 
     render() {
