@@ -27,7 +27,7 @@ public class SpringbootBackendApplication implements CommandLineRunner {
 
 	/**
 	 *  Preload role, admin, and user account
-	 *  email: admin@pawhero.com.au, password: admin
+	 *  email: admin@admin.com, password: admin
 	 *  email: user@user.com, password: user
 	 */
 	@Override
@@ -39,7 +39,7 @@ public class SpringbootBackendApplication implements CommandLineRunner {
 		roleRepo.save(admin);
 		roleRepo.save(user);
 		
-		userRepo.save(new User(1, admin, "admin", "admin", "0488888888", "admin@pawhero.com.au", "admin"));
+		userRepo.save(new User(1, admin, "admin", "admin", "0488888888", "admin@admin.com", "admin"));
 		userRepo.save(new User(2, user, "user", "user", "0499999999", "user@user.com", "user"));
 	}
 

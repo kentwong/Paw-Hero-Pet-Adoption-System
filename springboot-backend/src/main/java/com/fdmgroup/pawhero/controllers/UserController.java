@@ -1,10 +1,13 @@
 package com.fdmgroup.pawhero.controllers;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fdmgroup.pawhero.exception.ResourceNotFoundException;
-import com.fdmgroup.pawhero.model.Pet;
 import com.fdmgroup.pawhero.model.User;
 import com.fdmgroup.pawhero.repositories.UserRepository;
 
@@ -37,7 +39,7 @@ public class UserController {
 	}
 	
 	@GetMapping("/auth/{email}")
-	public ResponseEntity<User> getPetById(@PathVariable String email) {
+	public ResponseEntity<User> getUserById(@PathVariable String email) {
 		User user = userRepo.findByEmail(email);
 				
 		return ResponseEntity.ok(user);
@@ -64,6 +66,18 @@ public class UserController {
 
 		User updatedUser = userRepo.save(user);
 		return ResponseEntity.ok(updatedUser);
+	}
+	
+	@DeleteMapping("/{id}")
+	public ResponseEntity<Map<String, Boolean>> deleteUser(@PathVariable Integer id) {
+		User user = userRepo.findById(id)
+				.orElseThrow(() -> new ResourceNotFoundException("User does not exist with id : " + id));
+		
+		userRepo.delete(user);
+	
+		Map<String, Boolean> res = new HashMap<>();
+		res.put("deleted", Boolean.TRUE);
+		return ResponseEntity.ok(res);
 	}
 	
 //	@PostMapping(value = "/auth", produces = MediaType.APPLICATION_JSON_VALUE)
