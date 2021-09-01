@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import UserService from '../../services/UserService';
-import { useHistory } from 'react-router-dom';
 
 class SignUpComponent extends Component {
     constructor(props) {
