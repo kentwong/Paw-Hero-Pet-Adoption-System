@@ -25,11 +25,14 @@ public class SpringbootBackendApplication implements CommandLineRunner {
 		SpringApplication.run(SpringbootBackendApplication.class, args);
 	}
 
+	/**
+	 *  Preload role, admin, and user account
+	 *  email: admin@pawhero.com.au, password: admin
+	 *  email: user@user.com, password: user
+	 */
 	@Override
 	public void run(String... args) throws Exception {
-		// Preload role, admin, and user account
-		// username: admin, password: admin
-		// username: user, password: user
+
 		Role admin = new Role(1, "admin");
 		Role user = new Role(2, "user");
 		

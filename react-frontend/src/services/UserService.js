@@ -1,10 +1,10 @@
 import axios from 'axios';
 
-const USER_API_BASE_URL = "http://localhost:8081/pawhero/api/v1/users";
+const USER_API_BASE_URL = "http://localhost:8081/pawhero/user";
 
 class UserService {
     getUsers() {
-        return axios.get(USER_API_BASE_URL);
+        return axios.get(USER_API_BASE_URL + '/accounts');
     }
 
     createUser(user) {

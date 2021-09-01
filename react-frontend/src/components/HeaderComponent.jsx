@@ -30,6 +30,9 @@ const HeaderComponent = (props) => {
                 <li className="nav-item">
                     <a className="nav-link" href="/addpet">Add Pets</a>
                 </li>
+                <li className="nav-item">
+                    <a className="nav-link" href="/users">Users List</a>
+                </li>
             </ul>
             <div className="navbar-nav ms-auto">
                 <li className="nav-item navbar-right">

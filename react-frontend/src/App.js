@@ -9,6 +9,7 @@ import UpdatePetComponent from './components/UpdatePetComponent';
 import ViewPetComponent from './components/ViewPetComponent';
 import SignUpComponent from './components/SignUpComponent';
 import LoginComponent from './components/LoginComponent';
+import ListUserComponent from './components/ListUserComponent';
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
             <Route path="/signup" exact component={SignUpComponent}></Route>
             <Route path="/login" exact component={LoginComponent}></Route>
             <Route path="/logout" exact component={LoginComponent}></Route>
+            <Route path="/users" exact component={ListUserComponent}></Route>
           </Switch>
 
         </div>
