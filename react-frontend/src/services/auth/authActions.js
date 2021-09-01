@@ -11,10 +11,11 @@ export const authenticateUser = (emailAddress, password) => {
             .then(res => {
                 console.log(res.data)
                 if (res.data.password === password) {
-                    dispatch(success({ name: res.data.firstName, isLoggedIn: true }));
-                    localStorage.setItem("name", res.data.firstName)
-                    localStorage.setItem("role", res.data.role.name)
-                    localStorage.setItem("isLoggedIn", true)
+                    dispatch(success({ name: res.data.firstName, isLoggedIn: true, id: res.data.userId, role: res.data.role.name }));
+                    localStorage.setItem("name", res.data.firstName);
+                    localStorage.setItem("role", res.data.role.name);
+                    localStorage.setItem("userid", res.data.userId);
+                    localStorage.setItem("isLoggedIn", true);
                 } else {
                     dispatch(failure());
                 }
@@ -27,8 +28,9 @@ export const logoutUser = () => {
         dispatch(logoutRequest());
         localStorage.removeItem("name");
         localStorage.removeItem("role");
+        localStorage.removeItem("userid");
         localStorage.setItem("isLoggedIn", false)
-        dispatch(success({ name: '', isLoggedIn: false }));
+        dispatch(success({ name: '', isLoggedIn: false, id: '', role: '' }));
     }
 }
 
