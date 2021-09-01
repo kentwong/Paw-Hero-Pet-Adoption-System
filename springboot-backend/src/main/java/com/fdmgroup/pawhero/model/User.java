@@ -1,6 +1,7 @@
 package com.fdmgroup.pawhero.model;
 
 import java.util.Collection;
+import java.util.Set;
 
 import javax.persistence.*;
 
@@ -29,6 +30,9 @@ public class User {
 	private String emailAddress;
 	
 	private String password;
+	
+	@OneToMany(targetEntity = Application.class, mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private Set<Application> applications;
 	
 	public User() {
 		super();

@@ -11,23 +11,25 @@ public class Application {
 	@Column(name = "application_id")
 	private int applicationId;
 	
-	@Column(name = "user_id")
-	private int userId;
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	private User user;
 	
 	private String message;
 	
-	@Column(name = "pet_id")
-	private String petId;
+	@ManyToOne
+	@JoinColumn(name = "pet_id")
+	private Pet pet;
 
 	public Application() {
 		super();
 	}
 
-	public Application(int userId, String message, String petId) {
+	public Application(User user, String message, Pet pet) {
 		super();
-		this.userId = userId;
+		this.user = user;
 		this.message = message;
-		this.petId = petId;
+		this.pet = pet;
 	}
 
 	public int getApplicationId() {
@@ -38,12 +40,12 @@ public class Application {
 		this.applicationId = applicationId;
 	}
 
-	public int getUserId() {
-		return userId;
+	public User getUser() {
+		return user;
 	}
 
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public String getMessage() {
@@ -54,11 +56,11 @@ public class Application {
 		this.message = message;
 	}
 
-	public String getPetId() {
-		return petId;
+	public Pet getPet() {
+		return pet;
 	}
 
-	public void setPetId(String petId) {
-		this.petId = petId;
+	public void setPet(Pet pet) {
+		this.pet = pet;
 	}
 }

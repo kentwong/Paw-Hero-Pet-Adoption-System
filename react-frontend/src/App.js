@@ -12,6 +12,7 @@ import LoginComponent from './components/user/LoginComponent';
 import ListUserComponent from './components/user/ListUserComponent';
 import UpdateUserComponent from "./components/user/UpdateUserComponent";
 import HomePageComponent from "./components/HomePageComponent";
+import AdoptAppFormComponent from "./components/application/AdoptAppFormComponent";
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
             <Route path="/logout" exact component={LoginComponent}></Route>
             <Route path="/users" exact component={ListUserComponent}></Route>
             <Route path="/updateuser/:id" exact component={UpdateUserComponent}></Route>
+            <Route path="/adoptpet/:id" exact component={AdoptAppFormComponent}></Route>
           </Switch>
 
         </div>

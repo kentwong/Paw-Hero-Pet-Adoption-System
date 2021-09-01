@@ -1,5 +1,7 @@
 package com.fdmgroup.pawhero.model;
 
+import java.util.Set;
+
 import javax.persistence.*;
 
 @Entity
@@ -25,6 +27,9 @@ public class Pet {
 	
 	@Column(name = "image_url")
 	private String imageUrl;
+	
+	@OneToMany(targetEntity = Application.class, mappedBy = "pet", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private Set<Application> applications;
 
 	public Pet() {
 		super();
