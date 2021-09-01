@@ -15,7 +15,8 @@ const reducer = (state = initialState, action) => {
             return {
                 isLoggedIn: action.payload.isLoggedIn,
                 name: action.payload.name,
-                id: action.payload.id
+                id: action.payload.id,
+                role: action.payload.role
             }
         default:
             return state
