@@ -37,7 +37,7 @@ const UserNavComponent = () => {
                                     <a className="nav-link text-light dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Welcome, {auth.name || localStorage.getItem("name")}</a>
                                     <ul className="dropdown-menu">
                                         {console.log(auth)}
-                                        <li><a className="dropdown-item" href="/updateuser" >Update Profile</a></li>
+                                        <li><a className="dropdown-item" href={'/updateuser/' + (auth.id || localStorage.getItem("userid"))} >Update Profile</a></li>
                                         <li><hr className="dropdown-divider" /></li>
                                         <li><a className="dropdown-item" href="/" onClick={logout}>Log out</a></li>
                                     </ul>

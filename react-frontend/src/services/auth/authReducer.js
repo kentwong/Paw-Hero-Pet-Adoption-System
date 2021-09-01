@@ -14,7 +14,8 @@ const reducer = (state = initialState, action) => {
         case FAILURE:
             return {
                 isLoggedIn: action.payload.isLoggedIn,
-                name: action.payload.name
+                name: action.payload.name,
+                id: action.payload.id
             }
         default:
             return state
