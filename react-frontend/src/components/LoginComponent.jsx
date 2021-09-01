@@ -59,7 +59,7 @@ class LoginComponent extends Component {
                     </div>}
                     <div className="mb-3">
                         <label htmlFor="emailAddress" className="form-label">Email Address <span className="text-danger">*</span></label>
-                        <input type="text" className="form-control" id="emailAddress" value={this.state.emailAddress} onChange={this.handleOnChange} required></input>
+                        <input type="email" className="form-control" id="emailAddress" value={this.state.emailAddress} onChange={this.handleOnChange} required></input>
                     </div>
 
                     <div className="mb-3">
