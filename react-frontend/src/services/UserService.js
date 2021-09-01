@@ -8,7 +8,7 @@ class UserService {
     }
 
     createUser(user) {
-        return axios.post(USER_API_BASE_URL, user);
+        return axios.post(USER_API_BASE_URL + '/account', user);
     }
 
     getUserById(userId) {

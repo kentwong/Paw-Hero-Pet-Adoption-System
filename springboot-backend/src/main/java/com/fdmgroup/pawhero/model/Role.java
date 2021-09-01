@@ -1,5 +1,7 @@
 package com.fdmgroup.pawhero.model;
 
+import java.util.Set;
+
 import javax.persistence.*;
 
 @Entity
@@ -11,6 +13,9 @@ public class Role {
 	@Column(name = "role_id")
 	private int roleId;
 	private String name;
+	
+	@OneToMany(targetEntity = User.class, mappedBy = "role", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private Set<User> users;
 	
 	public Role() {
 		super();

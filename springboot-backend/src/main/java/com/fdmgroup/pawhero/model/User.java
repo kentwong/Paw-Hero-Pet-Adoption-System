@@ -13,13 +13,9 @@ public class User {
 	@Column(name = "user_id")
 	private int userId;
 	
-	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinTable(
-			name = "users_roles",
-			joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "user_id"), 
-			inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "role_id")
-			)
-	private Collection<Role> roles;
+	@ManyToOne
+	@JoinColumn(name = "role_id")
+	private Role role;
 
 	@Column(name = "first_name")
 	private String firstName;
@@ -38,11 +34,11 @@ public class User {
 		super();
 	}
 
-	public User(int userId, Collection<Role> roles, String firstName, String lastName, String phone, String emailAddress,
+	public User(int userId, Role role, String firstName, String lastName, String phone, String emailAddress,
 			String password) {
 		super();
 		this.userId = userId;
-		this.roles = roles;
+		this.role = role;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.phone = phone;
@@ -58,12 +54,12 @@ public class User {
 		this.userId = userId;
 	}
 
-	public Collection<Role> getRoles() {
-		return roles;
+	public Role getRole() {
+		return role;
 	}
 
-	public void setRoles(Collection<Role> roles) {
-		this.roles = roles;
+	public void setRole(Role role) {
+		this.role = role;
 	}
 
 	public String getFirstName() {

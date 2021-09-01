@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fdmgroup.pawhero.model.Pet;
 import com.fdmgroup.pawhero.model.User;
 import com.fdmgroup.pawhero.repositories.UserRepository;
 
@@ -24,12 +23,12 @@ public class UserController {
 	private UserRepository userRepo;
 	
 	@GetMapping("/accounts")
-	public List<User> getAllPets(){
+	public List<User> getAllUsers(){
 		return userRepo.findAll();
 	}
 	
 	@PostMapping("/account")
-	public User createPet(@RequestBody User user) {
+	public User createUser(@RequestBody User user) {
 		return userRepo.save(user);
 	}
 	

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import UserService from '../services/UserService';
 
 class SignUpComponent extends Component {
     constructor(props) {
@@ -34,13 +35,18 @@ class SignUpComponent extends Component {
             lastName: this.state.lastName,
             phone: this.state.phone,
             emailAddress: this.state.emailAddress,
-            password: this.state.password
+            password: this.state.password,
+            role: {
+                "roleId": 2,
+                "name": "user"
+            }
         };
         console.log(JSON.stringify(user));
 
-        // PetService.createPet(pet).then(res => {
-        //     this.props.history.push('/pets');
-        // });
+        UserService.createUser(user).then(res => {
+            this.props.history.push('/login');
+        })
+
     }
 
     render() {
