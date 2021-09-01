@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PetService from '../services/PetService';
+import PetService from '../../services/PetService';
 
 class ListPetComponent extends Component {
     constructor(props) {

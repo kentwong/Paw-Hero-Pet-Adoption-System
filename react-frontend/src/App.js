@@ -1,16 +1,16 @@
 import React from "react";
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import ListPetComponent from './components/ListPetComponent';
+import ListPetComponent from './components/pet/ListPetComponent';
 import HeaderComponent from './components/HeaderComponent';
 import FooterComponent from './components/FooterComponent';
 import HeroImageComponent from './components/HeroImageComponent';
-import CreatePetComponent from './components/CreatePetComponent';
-import UpdatePetComponent from './components/UpdatePetComponent';
-import ViewPetComponent from './components/ViewPetComponent';
-import SignUpComponent from './components/SignUpComponent';
-import LoginComponent from './components/LoginComponent';
-import ListUserComponent from './components/ListUserComponent';
+import CreatePetComponent from './components/pet/CreatePetComponent';
+import UpdatePetComponent from './components/pet/UpdatePetComponent';
+import ViewPetComponent from './components/pet/ViewPetComponent';
+import SignUpComponent from './components/user/SignUpComponent';
+import LoginComponent from './components/user/LoginComponent';
+import ListUserComponent from './components/user/ListUserComponent';
 
 
 function App() {

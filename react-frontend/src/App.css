@@ -50,3 +50,8 @@
     padding: 3rem !important;
   }
 }
+
+.dropdown-menu[data-bs-popper] {
+  left: auto !important;
+  right: 0 !important;
+}

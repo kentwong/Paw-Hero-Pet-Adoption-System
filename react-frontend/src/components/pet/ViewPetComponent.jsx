@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import PetService from '../services/PetService';
-import ImageNotAvail from '../assets/images/imagenotavailable.png';
+import PetService from '../../services/PetService';
+import ImageNotAvail from '../../assets/images/imagenotavailable.png';
 
 class ViewPetComponent extends Component {
     constructor(props) {

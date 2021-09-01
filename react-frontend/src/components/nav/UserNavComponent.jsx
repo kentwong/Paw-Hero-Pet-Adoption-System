@@ -33,9 +33,13 @@ const UserNavComponent = () => {
                                 </li>
                             </ul>
                             <div className="navbar-nav ms-auto">
-                                <li className="nav-item text-light py-2 px-3">Welcome, {auth.name || localStorage.getItem("name")} </li>
-                                <li className="nav-item navbar-right">
-                                    <a className="nav-link btn text-light btn-danger" href="/" onClick={logout}>Log Out</a>
+                                <li className="nav-item dropdown">
+                                    <a className="nav-link text-light dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Welcome, {auth.name || localStorage.getItem("name")}</a>
+                                    <ul className="dropdown-menu">
+                                        <li><a className="dropdown-item" href="#">Update Profile</a></li>
+                                        <li><hr className="dropdown-divider" /></li>
+                                        <li><a className="dropdown-item" href="/" onClick={logout}>Log out</a></li>
+                                    </ul>
                                 </li>
                             </div>
                         </div>
