@@ -13,14 +13,26 @@ function CreatePetComponent(props) {
     const [adoptionFee, setAdoptionFee] = useState('');
     const [description, setDescription] = useState('');
     const [imageUrl, setImageUrl] = useState('');
+    const [loading, setLoading] = useState(false);
 
-    // handleFileOnChange = async e => {
-    //     const files = e.target.files;
-    //     const data = new FormData();
-    //     data.append('file', files[0]);
-    //     data.append('upload_preset', 'pawheroimages')
 
-    // }
+    const uploadImage = async e => {
+
+        const files = e.target.files;
+        const data = new FormData();
+        data.append('file', files[0]);
+        data.append('upload_preset', 'pawheroimages');
+        setLoading(true);
+
+        const res = await fetch("https://api.cloudinary.com/v1_1/pawhero/image/upload", {
+            method: 'POST',
+            body: data
+        })
+
+        const file = await res.json();
+        setImageUrl(file.url);
+        setLoading(false);
+    }
 
     const cancel = () => {
         props.history.push('/pets');
@@ -103,7 +115,7 @@ function CreatePetComponent(props) {
                 </div>
                 <div className="mb-3">
                     <label htmlFor="imageUrl" className="form-label">Upload Image</label>
-                    <input type="file" className="form-control" id="imageUrl" value={imageUrl} onChange={e => setImageUrl(e.target.value)}></input>
+                    <input type="file" className="form-control" id="imageUrl" onChange={uploadImage}></input>
                 </div>
                 <button type="submit" className="btn btn-success me-2">Add</button>
                 <button className="btn btn-danger" onClick={cancel}>Cancel</button>

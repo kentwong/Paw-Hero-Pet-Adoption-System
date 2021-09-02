@@ -38,25 +38,25 @@ class ViewPetComponent extends Component {
                         </div>
                         <div className="col-lg-3 my-3">
                             <span className="badge bg-primary text-wrap">Name</span>
-                            <h4>{this.state.pet.name}</h4>
+                            <h5>{this.state.pet.name}</h5>
 
                             <span className="badge bg-primary text-wrap">Type</span>
-                            <h4>{this.state.pet.type}</h4>
+                            <h5>{this.state.pet.type}</h5>
 
                             <span className="badge bg-primary text-wrap">Breed</span>
-                            <h4>{this.state.pet.breed}</h4>
+                            <h5>{this.state.pet.breed}</h5>
 
                             <span className="badge bg-primary text-wrap">Age</span>
-                            <h4>{this.state.pet.age}</h4>
+                            <h5>{this.state.pet.age}</h5>
 
                             <span className="badge bg-primary text-wrap">Sex</span>
-                            <h4>{this.state.pet.sex}</h4>
+                            <h5>{this.state.pet.sex}</h5>
 
                             <span className="badge bg-primary text-wrap">Location</span>
-                            <h4>{this.state.pet.location}</h4>
+                            <h5>{this.state.pet.location}</h5>
 
                             <span className="badge bg-primary text-wrap">Adoption Fee</span>
-                            <h4>A$ {this.state.pet.adoptionFee}</h4>
+                            <h5>A$ {this.state.pet.adoptionFee}</h5>
                         </div>
                     </div>
 
