@@ -46,10 +46,13 @@ class ListPetComponent extends Component {
                     <table className="table table-Striped table-bordered">
                         <thead>
                             <tr>
-                                <th className="w-10">Pet ID</th>
-                                <th className="w-10">Pet Name</th>
-                                <th className="w-55">Pet Description</th>
-                                <th className="w-25">Actions</th>
+                                <th className="">Pet ID</th>
+                                <th className="">Pet Type</th>
+                                <th className="">Pet Name</th>
+                                <th className="">Pet Breed</th>
+                                <th className="">Pet Age</th>
+                                <th className="">Pet Location</th>
+                                <th className="">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -58,8 +61,11 @@ class ListPetComponent extends Component {
                                     pet =>
                                         <tr key={pet.petId}>
                                             <td> {pet.petId} </td>
+                                            <td> {pet.type} </td>
                                             <td> {pet.name} </td>
-                                            <td> {pet.description} </td>
+                                            <td> {pet.breed} </td>
+                                            <td> {pet.age} </td>
+                                            <td> {pet.location} </td>
                                             <td>
                                                 <button onClick={() => this.viewPet(pet.petId)} className="btn btn-secondary mb-2 me-2">View</button>
                                                 <button onClick={() => this.updatePet(pet.petId)} className="btn btn-primary mb-2 me-2">Update</button>

@@ -63,7 +63,15 @@ class ViewPetComponent extends Component {
                     <span className="fw-bold text-primary">About Me</span>
                     <p>{this.state.pet.description}</p>
 
-                    <button onClick={() => this.adoptPet(this.state.pet.petId)} className="btn btn-primary mb-2 me-2">Adopt Now</button>
+                    {localStorage.getItem("isLoggedIn") === 'false' ?
+                        <div class="alert alert-danger" role="alert">
+                            Login or Signup to continue adopting our lovely pets!
+                        </div>
+                        :
+                        <button onClick={() => this.adoptPet(this.state.pet.petId)} className="btn btn-primary mb-2 me-2">Adopt Now</button>
+                    }
+
+
                     <button onClick={() => this.cancel()} className="btn btn-danger mb-2 me-2">Back</button>
                 </div>
             </div>

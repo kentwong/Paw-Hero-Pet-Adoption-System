@@ -25,7 +25,7 @@ class UpdateUserComponent extends Component {
     }
 
     cancel() {
-        this.props.history.push('/users');
+        this.props.history.push('/');
     }
 
     componentDidMount() {
@@ -53,8 +53,10 @@ class UpdateUserComponent extends Component {
         };
         console.log(JSON.stringify((user)));
 
+        localStorage.setItem("name", this.state.firstName);
+
         UserService.updateUser(user, this.state.userId).then(res => {
-            this.props.history.push('/users');
+            this.props.history.push('/');
         });
     }
 
