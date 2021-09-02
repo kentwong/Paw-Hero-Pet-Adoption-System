@@ -38,7 +38,7 @@ class AdoptAppFormComponent extends Component {
 
         let application = {
             message: this.state.message,
-            status: "pending",
+            status: "Pending",
             user: {
                 "userId": parseInt(this.state.userId)
             },
@@ -49,7 +49,7 @@ class AdoptAppFormComponent extends Component {
         console.log(JSON.stringify(application));
 
         ApplicationService.createApplication(application).then(res => {
-            this.props.history.push('/viewapplication');
+            this.props.history.push('/application/view');
         })
 
     }

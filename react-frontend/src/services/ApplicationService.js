@@ -15,9 +15,9 @@ class ApplicationService {
     //     return axios.get(PET_API_BASE_URL + '/' + petId);
     // }
 
-    // updatePet(pet, petId) {
-    //     return axios.put(PET_API_BASE_URL + '/' + petId, pet);
-    // }
+    updateApplication(application, applicationId) {
+        return axios.put(PET_APPLICATION_URL + '/update/' + applicationId, application);
+    }
 
     // deletePet(petId) {
     //     return axios.delete(PET_API_BASE_URL + '/' + petId);

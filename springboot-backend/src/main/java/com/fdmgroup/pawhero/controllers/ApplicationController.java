@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -30,16 +31,20 @@ public class ApplicationController {
 		return applicationRepo.findAll();
 	}
 	
-//	@GetMapping("/all/{id}")
-//	public ResponseEntity<List<Application>> getApplicationsById(@PathVariable Integer id) {
-//		List<Application> application = applicationRepo.findAllById(id)
-//				.orElseThrow(() -> new ResourceNotFoundException("Pet does not exist with id : " + id));
-//		
-//		return ResponseEntity.ok(application);
-//	}
-	
 	@PostMapping("/create")
 	public Application createApplication(@RequestBody Application app) {
 		return applicationRepo.save(app);
+	}
+	
+	@PutMapping("/update/{id}")
+	public ResponseEntity<Application> updateApplication(@PathVariable Integer id, @RequestBody Application applicationUpdates) {
+		Application application = applicationRepo.findById(id)
+				.orElseThrow(() -> new ResourceNotFoundException("Application does not exist with id : " + id));
+		
+		application.setStatus(applicationUpdates.getStatus());
+		
+		
+		Application updatedApplication = applicationRepo.save(application);
+		return ResponseEntity.ok(updatedApplication);
 	}
 }

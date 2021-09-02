@@ -23,7 +23,7 @@ const UserNavComponent = () => {
                         <div className="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                                 <li className="nav-item">
-                                    <a className="nav-link" href="#">View Application</a>
+                                    <a className="nav-link" href="/application/view">View Application</a>
                                 </li>
                             </ul>
                             <div className="navbar-nav ms-auto">

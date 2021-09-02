@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import UserService from '../../services/UserService';
 import ApplicationService from '../../services/ApplicationService';
 
-class ProcessApplicationComponent extends Component {
+class ViewApplicationComponent extends Component {
     constructor(props) {
         super(props)
 
@@ -34,7 +34,7 @@ class ProcessApplicationComponent extends Component {
 
     deny(id) {
         UserService.deleteUser(id);
-        this.setState({ users: this.state.users.filter(user => user.userId !== id) })
+        this.setState({ applications: this.state.applications.filter(user => user.userId !== id) })
     }
 
     render() {
@@ -52,7 +52,6 @@ class ProcessApplicationComponent extends Component {
                                 <th className="">Pet Details</th>
                                 <th className="">Application Message</th>
                                 <th className="">Status</th>
-                                <th className="">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -77,12 +76,14 @@ class ProcessApplicationComponent extends Component {
 
                                             </td>
                                             <td> {application.message} </td>
-                                            <td> {application.status} </td>
 
-                                            <td>
-                                                <button onClick={() => this.updateApplication(application.applicationId, "Approved")} className="btn btn-success mb-2 me-2">Approve</button>
-                                                <button onClick={() => this.updateApplication(application.applicationId, "Denied")} className="btn btn-danger mb-2 me-2">Deny</button>
-                                            </td>
+                                            {application.status === "Pending" ?
+                                                <td><div className="badge rounded-pill bg-primary">{application.status}</div></td>
+                                                : application.status === "Approved" ?
+                                                    <td><div className="badge rounded-pill bg-success">{application.status}</div></td>
+                                                    : <td><div className="badge rounded-pill bg-danger">{application.status}</div></td>
+                                            }
+
                                         </tr>
                                 )
                             }
@@ -95,4 +96,4 @@ class ProcessApplicationComponent extends Component {
     }
 }
 
-export default ProcessApplicationComponent;
+export default ViewApplicationComponent;
