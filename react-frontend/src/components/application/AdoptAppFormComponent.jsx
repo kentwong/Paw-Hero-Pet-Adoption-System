@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import UserService from '../../services/UserService';
 import PetService from '../../services/PetService';
 import ApplicationService from '../../services/ApplicationService'
-import { timers } from 'jquery';
 
 class AdoptAppFormComponent extends Component {
     constructor(props) {
@@ -40,14 +38,19 @@ class AdoptAppFormComponent extends Component {
 
         let application = {
             message: this.state.message,
-            petId: this.state.petId,
-            userId: this.state.userId
+            status: "pending",
+            user: {
+                "userId": parseInt(this.state.userId)
+            },
+            pet: {
+                "petId": parseInt(this.state.petId)
+            }
         };
         console.log(JSON.stringify(application));
 
-        // ApplicationService.createApplication(application).then(res => {
-        //     this.props.history.push('/viewapplication');
-        // })
+        ApplicationService.createApplication(application).then(res => {
+            this.props.history.push('/viewapplication');
+        })
 
     }
 

@@ -18,7 +18,7 @@ public class ApplicationController {
 	@Autowired
 	ApplicationRepository applicationRepo;
 	
-	@PostMapping("/application")
+	@PostMapping("/create")
 	public Application createApplication(@RequestBody Application app) {
 		return applicationRepo.save(app);
 	}
