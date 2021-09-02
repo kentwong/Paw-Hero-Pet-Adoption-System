@@ -11,10 +11,6 @@ class ApplicationService {
         return axios.post(PET_APPLICATION_URL + '/create', pet);
     }
 
-    // getPetById(petId) {
-    //     return axios.get(PET_API_BASE_URL + '/' + petId);
-    // }
-
     getApplicationsByUserId(userId) {
         return axios.get(PET_APPLICATION_URL + '/all/' + userId)
     }
@@ -23,9 +19,9 @@ class ApplicationService {
         return axios.put(PET_APPLICATION_URL + '/update/' + applicationId, application);
     }
 
-    // deletePet(petId) {
-    //     return axios.delete(PET_API_BASE_URL + '/' + petId);
-    // }
+    deleteApplication(applicationId) {
+        return axios.delete(PET_APPLICATION_URL + '/delete/' + applicationId);
+    }
 }
 
 export default new ApplicationService();

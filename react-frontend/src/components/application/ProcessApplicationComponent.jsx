@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import UserService from '../../services/UserService';
 import ApplicationService from '../../services/ApplicationService';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 class ProcessApplicationComponent extends Component {
     constructor(props) {
@@ -32,9 +34,9 @@ class ProcessApplicationComponent extends Component {
         });
     }
 
-    deny(id) {
-        UserService.deleteUser(id);
-        this.setState({ users: this.state.users.filter(user => user.userId !== id) })
+    deleteApplication = (id) => {
+        ApplicationService.deleteApplication(id);
+        this.setState({ applications: this.state.applications.filter(application => application.applicationId !== id) })
     }
 
     render() {
@@ -44,7 +46,7 @@ class ProcessApplicationComponent extends Component {
                 <h2 className="text-center">Application List</h2>
 
                 <div className="row">
-                    <table className="table table-Striped table-bordered">
+                    <table className="table table-Striped table-bordered table-hover">
                         <thead>
                             <tr>
                                 <th className="">ID</th>
@@ -84,6 +86,7 @@ class ProcessApplicationComponent extends Component {
                                             <td>
                                                 <button onClick={() => this.updateApplication(application.applicationId, "Approved")} className="btn btn-success mb-2 me-2">Approve</button>
                                                 <button onClick={() => this.updateApplication(application.applicationId, "Denied")} className="btn btn-danger mb-2 me-2">Deny</button>
+                                                <FontAwesomeIcon className="fa-lg bin" icon={faTrash} color="#0d6efd" onClick={() => this.deleteApplication(application.applicationId)} />
                                             </td>
                                         </tr>
                                 )

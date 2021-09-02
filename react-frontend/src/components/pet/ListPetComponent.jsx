@@ -43,7 +43,7 @@ class ListPetComponent extends Component {
                 <h2 className="text-center">Pets List</h2>
 
                 <div className="row">
-                    <table className="table table-Striped table-bordered">
+                    <table className="table table-Striped table-bordered table-hover">
                         <thead>
                             <tr>
                                 <th className="">Pet ID</th>

@@ -45,7 +45,7 @@ class ViewApplicationComponent extends Component {
                 <h2 className="text-center">Application List</h2>
 
                 <div className="row">
-                    <table className="table table-Striped table-bordered">
+                    <table className="table table-Striped table-bordered table-hover">
                         <thead>
                             <tr>
                                 <th className="">ID</th>
