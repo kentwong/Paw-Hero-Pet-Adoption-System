@@ -43,6 +43,7 @@
   border: 2px solid #eee;
   margin: 50px auto;
   padding: 1rem;
+  background-color: white;
 }
 
 @media only screen and (min-width: 768px) {
@@ -54,4 +55,12 @@
 .dropdown-menu[data-bs-popper] {
   left: auto !important;
   right: 0 !important;
+}
+
+.app {
+  background-color: #f1f5f8;
+}
+
+.table {
+  background-color: white;
 }

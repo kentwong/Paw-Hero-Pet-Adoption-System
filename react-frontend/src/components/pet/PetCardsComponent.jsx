@@ -19,10 +19,35 @@ class PetCardsComponent extends Component {
         })
     }
 
+
+
     render() {
         return (
             <div className="container my-5">
-                <h2 className="text-center my-5">🐱Start Your Rescue Pet Search Here🐶 </h2>
+                <h2 className="text-center mt-5">🐱Start Your Rescue Pet Search Here🐶 </h2>
+                <div className="text-center mt-2 mb-4">
+                    <input type="radio" class="btn-check" name="options-outlined" id="dogs" autocomplete="off" onClick={() => {
+                        PetService.getPets().then((res) => {
+                            this.setState({ pets: res.data.filter(pet => pet.type === 'Dog') })
+                        })
+                    }} />
+                    <label className="btn btn-outline-primary me-2" for="dogs">Dogs</label>
+
+                    <input type="radio" class="btn-check" name="options-outlined" id="cats" autocomplete="off" onClick={() => {
+                        PetService.getPets().then((res) => {
+                            this.setState({ pets: res.data.filter(pet => pet.type === 'Cat') })
+                        })
+                    }} />
+                    <label className="btn btn-outline-primary me-2" for="cats">Cats</label>
+
+                    <input type="radio" class="btn-check" name="options-outlined" id="allpets" autocomplete="off" onClick={() => {
+                        PetService.getPets().then((res) => {
+                            this.setState({ pets: res.data })
+                        })
+                    }} />
+                    <label className="btn btn-outline-primary" for="allpets">All Pets</label>
+                </div>
+
                 <div className="row">
                     {
                         this.state.pets.map(
