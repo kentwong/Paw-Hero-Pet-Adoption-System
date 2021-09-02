@@ -15,8 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fdmgroup.pawhero.exception.ResourceNotFoundException;
 import com.fdmgroup.pawhero.model.Application;
-import com.fdmgroup.pawhero.model.Pet;
-import com.fdmgroup.pawhero.model.User;
 import com.fdmgroup.pawhero.repositories.ApplicationRepository;
 
 @CrossOrigin(origins = "http://localhost:3000")
