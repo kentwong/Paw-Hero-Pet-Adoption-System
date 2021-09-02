@@ -27,9 +27,9 @@ class PetCardsComponent extends Component {
                     {
                         this.state.pets.map(
                             pet =>
-                                <div className="col-3 my-3" key={pet.petId}>
+                                <div className="col-sm-6 col-md-4 col-lg-3 my-3" key={pet.petId}>
                                     <div className="card">
-                                        <img className="w-100" src={ImageNotAvail} alt="Pet" />
+                                        <img className="w-100" src={pet.imageUrl === '' ? ImageNotAvail : pet.imageUrl} alt="Pet" />
                                         <div className="card-body">
                                             <h5 className="card-title">{pet.name}</h5>
                                             <div className="card-text-group my-3">

@@ -34,7 +34,7 @@ class ViewPetComponent extends Component {
                     <h2>Pet Details</h2>
                     <div className="row">
                         <div className="col-lg-8 my-3">
-                            <img className="w-100" src={ImageNotAvail} alt="Pet" />
+                            <img className="w-100" src={this.state.pet.imageUrl === '' ? ImageNotAvail : this.state.pet.imageUrl} alt="Pet" />
                         </div>
                         <div className="col-lg-3 my-3">
                             <span className="badge bg-primary text-wrap">Name</span>

@@ -23,6 +23,7 @@ public class Pet {
 	@Column(name = "adoption_fee")
 	private String adoptionFee;
 	
+	@Column(length = 1000)
 	private String description;
 	
 	@Column(name = "image_url")

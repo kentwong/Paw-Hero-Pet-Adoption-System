@@ -16,7 +16,8 @@ class UpdatePetComponent extends Component {
             location: '',
             adoptionFee: '',
             description: '',
-            imageUrl: ''
+            imageUrl: '',
+            loading: ''
         }
         this.handleOnChange = this.handleOnChange.bind(this);
         this.updatePet = this.updatePet.bind(this);
@@ -49,6 +50,24 @@ class UpdatePetComponent extends Component {
                 imageUrl: pet.imageUrl
             })
         })
+    }
+
+    uploadImage = async e => {
+
+        const files = e.target.files;
+        const data = new FormData();
+        data.append('file', files[0]);
+        data.append('upload_preset', 'pawheroimages');
+
+        this.setState({ loading: true });
+        const res = await fetch("https://api.cloudinary.com/v1_1/pawhero/image/upload", {
+            method: 'POST',
+            body: data
+        })
+
+        const file = await res.json();
+        this.setState({ imageUrl: file.url });
+        this.setState({ loading: false });
     }
 
     updatePet = e => {
@@ -128,7 +147,7 @@ class UpdatePetComponent extends Component {
                     </div>
                     <div className="mb-3">
                         <label htmlFor="imageUrl" className="form-label">Upload Image</label>
-                        <input type="file" className="form-control" id="imageUrl" value={this.state.imageUrl} onChange={this.handleOnChange}></input>
+                        <input type="file" className="form-control" id="imageUrl" onChange={this.uploadImage}></input>
                     </div>
                     <button type="submit" className="btn btn-success me-2">Save</button>
                     <button className="btn btn-danger" onClick={this.cancel.bind(this)}>Cancel</button>
