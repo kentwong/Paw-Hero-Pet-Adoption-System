@@ -32,7 +32,7 @@ const AdminNavComponent = () => {
                                     <a className="nav-link" href="/users">Users List</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="#">View Application</a>
+                                    <a className="nav-link" href="/application/process">Process Application</a>
                                 </li>
                             </ul>
                             <div className="navbar-nav ms-auto">

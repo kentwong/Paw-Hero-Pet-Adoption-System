@@ -3,9 +3,9 @@ import axios from 'axios';
 const PET_APPLICATION_URL = "http://localhost:8081/pawhero/application";
 
 class ApplicationService {
-    // getPets() {
-    //     return axios.get(PET_API_BASE_URL);
-    // }
+    getApplications() {
+        return axios.get(PET_APPLICATION_URL + '/all');
+    }
 
     createApplication(pet) {
         return axios.post(PET_APPLICATION_URL + '/create', pet);

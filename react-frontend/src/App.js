@@ -13,6 +13,7 @@ import ListUserComponent from './components/user/ListUserComponent';
 import UpdateUserComponent from "./components/user/UpdateUserComponent";
 import HomePageComponent from "./components/HomePageComponent";
 import AdoptAppFormComponent from "./components/application/AdoptAppFormComponent";
+import ProcessApplicationComponent from "./components/application/ProcessApplicationComponent";
 
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
             <Route path="/users" exact component={ListUserComponent}></Route>
             <Route path="/updateuser/:id" exact component={UpdateUserComponent}></Route>
             <Route path="/adoptpet/:id" exact component={AdoptAppFormComponent}></Route>
+            <Route path="/application/process" exact component={ProcessApplicationComponent}></Route>
           </Switch>
 
         </div>

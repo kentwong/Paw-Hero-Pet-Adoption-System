@@ -63,9 +63,6 @@ class ListUserComponent extends Component {
 
                     </table>
                 </div>
-                {/* <div className="">
-                    <button className="btn btn-success" onClick={this.addPet}>Add Pet</button>
-                </div> */}
             </div>
         );
     }
