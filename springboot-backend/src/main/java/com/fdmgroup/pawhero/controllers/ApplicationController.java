@@ -1,10 +1,13 @@
 package com.fdmgroup.pawhero.controllers;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -52,5 +55,17 @@ public class ApplicationController {
 		List<Application> applications = applicationRepo.findAllByUserId(userId);
 				
 		return ResponseEntity.ok(applications);
+	}
+	
+	@DeleteMapping("/delete/{id}")
+	public ResponseEntity<Map<String, Boolean>> deleteApplication(@PathVariable Integer id) {
+		Application application = applicationRepo.findById(id)
+				.orElseThrow(() -> new ResourceNotFoundException("Application does not exist with id : " + id));
+		
+		applicationRepo.delete(application);
+	
+		Map<String, Boolean> res = new HashMap<>();
+		res.put("deleted", Boolean.TRUE);
+		return ResponseEntity.ok(res);
 	}
 }
