@@ -51,6 +51,7 @@ class ProcessApplicationComponent extends Component {
                                 <th className="">Applicant Details</th>
                                 <th className="">Pet Details</th>
                                 <th className="">Application Message</th>
+                                <th className="">Application Date</th>
                                 <th className="">Status</th>
                                 <th className="">Actions</th>
                             </tr>
@@ -77,6 +78,7 @@ class ProcessApplicationComponent extends Component {
 
                                             </td>
                                             <td> {application.message} </td>
+                                            <td> {application.date} </td>
                                             <td> {application.status} </td>
 
                                             <td>

@@ -48,7 +48,7 @@ class ViewApplicationComponent extends Component {
                         <thead>
                             <tr>
                                 <th className="">ID</th>
-                                <th className="">Applicant Details</th>
+                                <th className="">Application Date</th>
                                 <th className="">Pet Details</th>
                                 <th className="">Application Message</th>
                                 <th className="">Status</th>
@@ -60,13 +60,7 @@ class ViewApplicationComponent extends Component {
                                     application =>
                                         <tr key={application.applicationId}>
                                             <td> {application.applicationId} </td>
-                                            <td>
-                                                <div>
-                                                    {application.user.firstName + ' ' + application.user.lastName} <br />
-                                                    {application.user.phone} <br />
-                                                    {application.user.emailAddress}
-                                                </div>
-                                            </td>
+                                            <td> {application.date} </td>
                                             <td>
                                                 <div>
                                                     {application.pet.name + ' (pet id: ' + application.pet.petId + ')'} <br />

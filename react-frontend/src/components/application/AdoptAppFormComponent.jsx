@@ -36,6 +36,9 @@ class AdoptAppFormComponent extends Component {
     addApplication = e => {
         e.preventDefault();
 
+        let dateWithTime = new Date().toString().substring(0, new Date().toString().indexOf("G") - 1);
+        let date = dateWithTime.substring(0, dateWithTime.lastIndexOf(" "));
+
         let application = {
             message: this.state.message,
             status: "Pending",
@@ -44,7 +47,8 @@ class AdoptAppFormComponent extends Component {
             },
             pet: {
                 "petId": parseInt(this.state.petId)
-            }
+            },
+            date: date
         };
         console.log(JSON.stringify(application));
 

@@ -17,6 +17,7 @@ public class Application {
 	
 	private String message;
 	private String status;
+	private String date;
 	
 	@ManyToOne
 	@JoinColumn(name = "pet_id")
@@ -26,12 +27,13 @@ public class Application {
 		super();
 	}
 
-	public Application(User user, String message, String status, Pet pet) {
+	public Application(User user, String message, String status, String date, Pet pet) {
 		super();
 		this.user = user;
 		this.message = message;
 		this.status = status;
 		this.pet = pet;
+		this.date = date;
 	}
 
 	public int getApplicationId() {
@@ -72,5 +74,13 @@ public class Application {
 
 	public void setStatus(String status) {
 		this.status = status;
+	}
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
 	}
 }
