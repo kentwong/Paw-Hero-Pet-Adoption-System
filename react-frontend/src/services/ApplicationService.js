@@ -15,6 +15,10 @@ class ApplicationService {
     //     return axios.get(PET_API_BASE_URL + '/' + petId);
     // }
 
+    getApplicationsByUserId(userId) {
+        return axios.get(PET_APPLICATION_URL + '/all/' + userId)
+    }
+
     updateApplication(application, applicationId) {
         return axios.put(PET_APPLICATION_URL + '/update/' + applicationId, application);
     }

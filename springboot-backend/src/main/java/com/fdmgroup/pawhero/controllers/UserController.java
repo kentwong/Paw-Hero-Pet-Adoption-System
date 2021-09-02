@@ -39,7 +39,7 @@ public class UserController {
 	}
 	
 	@GetMapping("/auth/{email}")
-	public ResponseEntity<User> getUserById(@PathVariable String email) {
+	public ResponseEntity<User> getUserByEmail(@PathVariable String email) {
 		User user = userRepo.findByEmail(email);
 				
 		return ResponseEntity.ok(user);

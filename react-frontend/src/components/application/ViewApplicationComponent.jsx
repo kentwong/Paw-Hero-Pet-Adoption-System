@@ -7,12 +7,13 @@ class ViewApplicationComponent extends Component {
         super(props)
 
         this.state = {
-            applications: []
+            applications: [],
+            userId: localStorage.getItem("userid")
         }
     }
 
     componentDidMount() {
-        ApplicationService.getApplications().then((res) => {
+        ApplicationService.getApplicationsByUserId(this.state.userId).then((res) => {
             this.setState({ applications: res.data })
         })
     }
@@ -26,7 +27,7 @@ class ViewApplicationComponent extends Component {
 
         ApplicationService.updateApplication(application, id).then(res => {
 
-            ApplicationService.getApplications().then((res) => {
+            ApplicationService.getApplicationsByUserId().then((res) => {
                 this.setState({ applications: res.data })
             })
         });
