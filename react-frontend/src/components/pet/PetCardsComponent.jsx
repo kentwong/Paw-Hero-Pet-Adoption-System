@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PetService from '../../services/PetService';
+import ApplicationService from '../../services/ApplicationService';
 import ImageNotAvail from '../../assets/images/imagenotavailable.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaw } from '@fortawesome/free-solid-svg-icons';
@@ -9,14 +10,41 @@ class PetCardsComponent extends Component {
         super(props)
 
         this.state = {
-            pets: []
+            pets: [],
+            Applications: []
         }
     }
 
     componentDidMount() {
-        PetService.getPets().then((res) => {
-            this.setState({ pets: res.data })
+
+
+        ApplicationService.getApplications().then((res) => {
+            this.setState({ applications: res.data })
+            // let approvedApp = this.state.applications.filter(application => application.status === 'Approved').map(application => application.pet.petId);
+            // console.log(approvedApp)
+
+            let approvedApp = this.state.applications.filter(application => application.status === 'Approved').map(application => application.pet);
+            console.log(approvedApp)
+
+            PetService.getPets().then((res) => {
+                this.setState({ pets: res.data })
+
+                let allPets = this.state.pets;
+                console.log(allPets)
+
+                let filteredArray = allPets.filter(function (array_el) {
+                    return approvedApp.filter(function (array2_el) {
+                        return array2_el.petId === array_el.petId;
+                    }).length == 0
+                });
+
+                console.log(filteredArray)
+
+                this.setState({ pets: filteredArray })
+            })
         })
+
+
     }
 
 
