@@ -15,6 +15,7 @@ import HomePageComponent from "./components/HomePageComponent";
 import AdoptAppFormComponent from "./components/application/AdoptAppFormComponent";
 import ProcessApplicationComponent from "./components/application/ProcessApplicationComponent";
 import ViewApplicationComponent from "./components/application/ViewApplicationComponent";
+import CreatePetUnauthorisedComponent from "./components/pet/CreatePetUnauthorisedComponent";
 
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
             <Route path="/adoptpet/:id" exact component={AdoptAppFormComponent}></Route>
             <Route path="/application/process" exact component={ProcessApplicationComponent}></Route>
             <Route path="/application/view" exact component={ViewApplicationComponent}></Route>
+            <Route path="/addpets" exact component={CreatePetUnauthorisedComponent}></Route>
           </Switch>
 
         </div>

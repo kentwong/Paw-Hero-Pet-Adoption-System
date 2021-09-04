@@ -63,7 +63,6 @@ function CreatePetComponent(props) {
         });
     }
 
-
     return (
         <div className="container">
             <form className="custom-container" onSubmit={addPet}>

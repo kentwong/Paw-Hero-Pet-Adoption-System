@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { logoutUser } from '../../services/index';
+import Logo from '../../assets/images/pawherologo.png';
 
 const AdminNavComponent = () => {
 
@@ -16,7 +17,7 @@ const AdminNavComponent = () => {
             <header>
                 <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                     <div className="container-fluid">
-                        <a className="navbar-brand" href="/">Paw Hero Adoption</a>
+                        <a className="navbar-brand" href="/"><img src={Logo} style={{ "width": "180px" }} alt="Paw Hero Adoption" /></a>
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon"></span>
                         </button>

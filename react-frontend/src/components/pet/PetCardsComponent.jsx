@@ -35,7 +35,7 @@ class PetCardsComponent extends Component {
                 let filteredArray = allPets.filter(function (array_el) {
                     return approvedApp.filter(function (array2_el) {
                         return array2_el.petId === array_el.petId;
-                    }).length == 0
+                    }).length === 0
                 });
 
                 console.log(filteredArray)
