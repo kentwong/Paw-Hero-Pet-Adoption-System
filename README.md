@@ -6,7 +6,7 @@ This project was created with
 - MySql - Database
 
 ## Getting Started
-**1️⃣ React Frontend**
+**1️⃣ React Frontend**\
 In the `react-frontend` project directory, you can run:
 
 #### `npm install`
@@ -18,7 +18,7 @@ Install all the dependencies used in the project.
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-**2️⃣ Java Backend**
+**2️⃣ Java Backend**\
 In the `Springboot-backend` project directory, you can use Eclipse IDE to run `SpringbootBackendApplication.java`. \
 The server port is configured to port 8081 in the `application.properties` file. 
 
@@ -30,7 +30,7 @@ For general user account, you may create your own account by signing up or use t
 - Email Address: user@user.com
 - Password: user
 
-**3️⃣ MySql Database**
+**3️⃣ MySql Database**\
 The data source url is configured to `pet_adoption_system` in the `application.properties` file. Create the schema using the following code if it is not yet exist. 
 
 ```sql
