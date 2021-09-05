@@ -4,6 +4,14 @@ import java.util.Set;
 
 import javax.persistence.*;
 
+/**
+ * The Pet class is part of the model with the following properties:
+ * petId, type, name, breed, age, sex, location, adoptionFee,
+ * description, and imageUrl. 
+ * 
+ * @author kentwong
+ *
+ */
 @Entity
 @Table(name = "pet")
 public class Pet {

@@ -2,6 +2,13 @@ package com.fdmgroup.pawhero.model;
 
 import javax.persistence.*;
 
+/**
+ * The Application class is part of the model with the following properties: 
+ * applicationId, User, message, status, date, and Pet.
+ * 
+ * @author kentwong
+ *
+ */
 @Entity
 @Table(name = "application")
 public class Application {

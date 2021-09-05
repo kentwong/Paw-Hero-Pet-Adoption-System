@@ -1,7 +1,5 @@
 package com.fdmgroup.pawhero;
 
-import java.util.Arrays;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -12,6 +10,12 @@ import com.fdmgroup.pawhero.model.User;
 import com.fdmgroup.pawhero.repositories.RoleRepository;
 import com.fdmgroup.pawhero.repositories.UserRepository;
 
+/**
+ * Run this class to get started.
+ * 
+ * @author kentwong
+ *
+ */
 @SpringBootApplication
 public class SpringbootBackendApplication implements CommandLineRunner {
 
@@ -42,5 +46,4 @@ public class SpringbootBackendApplication implements CommandLineRunner {
 		userRepo.save(new User(1, admin, "Admin", "Admin", "0488888888", "admin@admin.com", "admin"));
 		userRepo.save(new User(2, user, "Kent", "Wong", "0499999999", "user@user.com", "user"));
 	}
-
 }

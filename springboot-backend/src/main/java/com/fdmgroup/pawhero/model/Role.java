@@ -4,6 +4,13 @@ import java.util.Set;
 
 import javax.persistence.*;
 
+/**
+ * The Role class is part of the model with the following properties:
+ * roleId and name
+ * 
+ * @author kentwong
+ *
+ */
 @Entity
 @Table(name = "role")
 public class Role {

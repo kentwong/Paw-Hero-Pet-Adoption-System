@@ -23,6 +23,14 @@ import com.fdmgroup.pawhero.exception.ResourceNotFoundException;
 import com.fdmgroup.pawhero.model.Pet;
 import com.fdmgroup.pawhero.repositories.PetRepository;
 
+/**
+ * The PetController class controls the flow of data into model object. The 
+ * rest API requests available include getAllPets(), createPets(),
+ * updatePets(), getPetById(), updatePet() and deletePet(). 
+ * 
+ * @author kentwong
+ *
+ */
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/pawhero/api/v1/")
@@ -38,18 +46,36 @@ public class PetController {
 		this.petRepo = petRepo;
 	}
 
+	/**
+	 * The getAllPets method return the list of all Pet objects.
+	 * 
+	 * @return List of Pet Objects
+	 */
 	@GetMapping("/pets")
 	public List<Pet> getAllPets(){
 		logger.info("GET request for /pets");
 		return petRepo.findAll();
 	}
 	
+	/**
+	 * The createPet method will save the new Pet in the database
+	 * 
+	 * @param pet New Pet's object
+	 * @return Pet object
+	 */
 	@PostMapping("/pets")
 	public Pet createPet(@RequestBody Pet pet) {
 		logger.info("POST request for /pets");
 		return petRepo.save(pet);
 	}
 	
+	/**
+	 * The getPetById method returns pet with the specified
+	 * ID in path variable. 
+	 * 
+	 * @param id Pet's ID
+	 * @return ResponseEntity of Pet
+	 */
 	@GetMapping("/pets/{id}")
 	public ResponseEntity<Pet> getPetById(@PathVariable Integer id) {
 		logger.info("GET request for /pets/" + id.toString());
@@ -59,6 +85,14 @@ public class PetController {
 		return ResponseEntity.ok(pet);
 	}
 	
+	/**
+	 * The updatePet method will update the all properties of the pet with ID
+	 * specified in path variable. 
+	 * 
+	 * @param id Pet's ID
+	 * @param petUpdates Updated pet object with new details
+	 * @return ResponseEntity of Pet
+	 */
 	@PutMapping("/pets/{id}")
 	public ResponseEntity<Pet> updatePet(@PathVariable Integer id, @RequestBody Pet petUpdates) {
 		logger.info("PUT request for /pets/" + id.toString());
@@ -79,6 +113,13 @@ public class PetController {
 		return ResponseEntity.ok(updatedPet);
 	}
 	
+	/**
+	 * The deletePet method delete the pet with the specified id in
+	 * the path variable. 
+	 * 
+	 * @param id Pet's ID
+	 * @return ResponseEntity of Map stating if deleted is true
+	 */
 	@DeleteMapping("/pets/{id}")
 	public ResponseEntity<Map<String, Boolean>> deletePet(@PathVariable Integer id) {
 		logger.info("DELETE request for /pets/" + id.toString());
@@ -91,6 +132,4 @@ public class PetController {
 		res.put("deleted", Boolean.TRUE);
 		return ResponseEntity.ok(res);
 	}
-	
-	
 }

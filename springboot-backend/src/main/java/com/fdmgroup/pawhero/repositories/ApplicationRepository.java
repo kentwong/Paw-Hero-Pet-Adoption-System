@@ -12,6 +12,13 @@ import com.fdmgroup.pawhero.model.Application;
 @Repository
 public interface ApplicationRepository extends JpaRepository<Application, Integer> {
 
+	/**
+	 * The findAllByUserId method returns all applications with user id
+	 * specified in the parameter
+	 * 
+	 * @param userId User's ID
+	 * @return List of Application objects with the same user id
+	 */
 	@Query("FROM Application WHERE user_id=:userId")
 	List<Application> findAllByUserId(@Param("userId") String userId);
 }

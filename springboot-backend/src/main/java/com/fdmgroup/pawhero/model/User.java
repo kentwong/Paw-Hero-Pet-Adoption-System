@@ -4,6 +4,13 @@ import java.util.Set;
 
 import javax.persistence.*;
 
+/**
+ * The User class is part of the model with the following properties:
+ * userId, role, firstName, lastName, phone, emailAddress, and password
+ * 
+ * @author kentwong
+ *
+ */
 @Entity
 @Table(name = "user", uniqueConstraints = @UniqueConstraint(columnNames = "email_address"))
 public class User {
