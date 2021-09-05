@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const PET_API_BASE_URL = "http://localhost:8081/pawhero/api/v1/pets";
+const PET_API_BASE_URL = "http://localhost:80/pawhero/api/v1/pets";
 
 class PetService {
     getPets() {

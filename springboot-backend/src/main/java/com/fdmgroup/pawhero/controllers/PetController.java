@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
@@ -26,6 +28,8 @@ import com.fdmgroup.pawhero.repositories.PetRepository;
 @RequestMapping("/pawhero/api/v1/")
 public class PetController {
 
+	private static Logger logger = LogManager.getLogger(PetController.class);
+	
 	@Autowired
 	private PetRepository petRepo;
 	
@@ -36,16 +40,19 @@ public class PetController {
 
 	@GetMapping("/pets")
 	public List<Pet> getAllPets(){
+		logger.info("GET request for /pets");
 		return petRepo.findAll();
 	}
 	
 	@PostMapping("/pets")
 	public Pet createPet(@RequestBody Pet pet) {
+		logger.info("POST request for /pets");
 		return petRepo.save(pet);
 	}
 	
 	@GetMapping("/pets/{id}")
 	public ResponseEntity<Pet> getPetById(@PathVariable Integer id) {
+		logger.info("GET request for /pets/" + id.toString());
 		Pet pet = petRepo.findById(id)
 				.orElseThrow(() -> new ResourceNotFoundException("Pet does not exist with id : " + id));
 		
@@ -54,6 +61,7 @@ public class PetController {
 	
 	@PutMapping("/pets/{id}")
 	public ResponseEntity<Pet> updatePet(@PathVariable Integer id, @RequestBody Pet petUpdates) {
+		logger.info("PUT request for /pets/" + id.toString());
 		Pet pet = petRepo.findById(id)
 				.orElseThrow(() -> new ResourceNotFoundException("Pet does not exist with id : " + id));
 		
@@ -73,6 +81,7 @@ public class PetController {
 	
 	@DeleteMapping("/pets/{id}")
 	public ResponseEntity<Map<String, Boolean>> deletePet(@PathVariable Integer id) {
+		logger.info("DELETE request for /pets/" + id.toString());
 		Pet pet = petRepo.findById(id)
 				.orElseThrow(() -> new ResourceNotFoundException("Pet does not exist with id : " + id));
 		

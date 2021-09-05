@@ -1,7 +1,7 @@
 import { LOGIN_REQUEST, LOGOUT_REQUEST, SUCCESS, FAILURE } from './authTypes';
 import axios from 'axios';
 
-const AUTH_URL = "http://localhost:8081/pawhero/user/auth"
+const AUTH_URL = "http://localhost:80/pawhero/user/auth"
 
 export const authenticateUser = (emailAddress, password) => {
     return dispatch => {

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const PET_APPLICATION_URL = "http://localhost:8081/pawhero/application";
+const PET_APPLICATION_URL = "http://localhost:80/pawhero/application";
 
 class ApplicationService {
     getApplications() {
