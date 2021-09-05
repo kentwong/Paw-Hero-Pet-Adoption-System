@@ -29,6 +29,11 @@ public class PetController {
 	@Autowired
 	private PetRepository petRepo;
 	
+	public PetController(PetRepository petRepo) {
+		super();
+		this.petRepo = petRepo;
+	}
+
 	@GetMapping("/pets")
 	public List<Pet> getAllPets(){
 		return petRepo.findAll();

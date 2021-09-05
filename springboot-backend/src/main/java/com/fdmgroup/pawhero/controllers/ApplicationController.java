@@ -28,6 +28,11 @@ public class ApplicationController {
 	@Autowired
 	ApplicationRepository applicationRepo;
 	
+	public ApplicationController(ApplicationRepository applicationRepo) {
+		super();
+		this.applicationRepo = applicationRepo;
+	}
+
 	@GetMapping("/all")
 	public List<Application> getAllApplications(){
 		return applicationRepo.findAll();

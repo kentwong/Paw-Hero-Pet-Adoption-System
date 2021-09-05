@@ -28,6 +28,12 @@ public class UserController {
 	@Autowired
 	private UserRepository userRepo;
 	
+	@Autowired
+	public UserController(UserRepository userRepo) {
+		super();
+		this.userRepo = userRepo;
+	}
+	
 	@GetMapping("/accounts")
 	public List<User> getAllUsers(){
 		return userRepo.findAll();
@@ -79,10 +85,4 @@ public class UserController {
 		res.put("deleted", Boolean.TRUE);
 		return ResponseEntity.ok(res);
 	}
-	
-//	@PostMapping(value = "/auth", produces = MediaType.APPLICATION_JSON_VALUE)
-//	public ResponseEntity<String> authenticate(@RequestBody User user) {
-//		
-//		
-//	}
 }
